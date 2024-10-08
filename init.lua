@@ -1,4 +1,8 @@
 -- load options
-require("lua.options")
+require("config.options")
+
 -- load mappings
-require("lua.mappings")
+require("config.mappings")
+
+-- load lazy.nvim
+require("config.lazy")
