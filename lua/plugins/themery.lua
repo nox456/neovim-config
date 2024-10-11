@@ -3,7 +3,11 @@ return {
 		"navarasu/onedark.nvim",
 		opts = { 
 			style = "deep",
-			transparent = true
+			transparent = true,
+			ending_tildes = true,
+			lualine = {
+				transparent = true
+			}
 		}
 	},
 	{
