@@ -22,5 +22,5 @@ return {
 				quit_on_open = true
 			}
 		}
-	  }
+	  },
 }
