@@ -6,3 +6,6 @@ require("config.mappings")
 
 -- load lazy.nvim
 require("config.lazy")
+
+-- set colorscheme
+vim.cmd("colorscheme tokyonight")
