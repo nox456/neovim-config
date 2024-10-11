@@ -37,8 +37,8 @@ return {
 				lualine_x = { ip },
 				lualine_y= { cwd },
 				lualine_z= { time }
-			}
-
+			},
+			extensions = { 'nvim-tree' }
 		}
 	}
 }

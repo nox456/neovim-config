@@ -21,3 +21,8 @@ o.mouse = ""
 o.signcolumn = "yes"
 -- short timeout when pressing a mapped sequence
 o.timeoutlen = 300
+-- disabling netrw to use nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- enable 24-bit colour
+o.termguicolors = true

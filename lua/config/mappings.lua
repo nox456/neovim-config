@@ -14,3 +14,6 @@ map("n", "<F3>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 
 -- Theme picker
 map("n", "<leader>th", "<cmd>Themery<CR>", { desc = "Show theme picker" })
+
+-- Nvim-tree
+map("n","<leader>b","<cmd>NvimTreeToggle<CR>", { desc = "Show file explorer" } )
