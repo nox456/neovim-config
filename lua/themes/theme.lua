@@ -262,6 +262,7 @@ theme.set_highlights = function(c)
   hl(0, "NvimTreeSymlink", { fg = c.cyan, bg = 'NONE' })
   hl(0, "NvimTreeRootFolder", { fg = c.base05, bg = 'NONE', bold=true, })
   hl(0, "NvimTreeExecFile", { fg = c.green, bg = 'NONE' })
+  hl(0, "NvimTreeOpenedHL", { fg = c.base09, bold = true })
 
   -- Buffer
   hl(0, "BufferCurrent", { fg = c.base05, bg = c.base00 })
@@ -336,7 +337,8 @@ theme.set_highlights = function(c)
   hl(0, "IlluminatedWordText", { fg = 'NONE', bg = c.base02, sp = 'NONE',  })
 
   -- Bufferline
-  hl(0, "BufferLineIndicatorSelected", { fg = c.white, bg = c.white })
+  hl(0, "TabLineSel", { fg = c.white, underline = true })
+  hl(0, "BufferLineSeparator", { fg = c.white })
 
 end
 

@@ -16,10 +16,9 @@ return {
 			show_close_icon = true,
 			buffer_close_icon = '󰅖',
 			indicator = {
-				icon = '',
 				style = 'underline'
 			},
-			separator_style = { '', ''}
+			separator_style = {'',''}
 		}
 	}
 }
