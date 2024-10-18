@@ -9,6 +9,7 @@ return {
 				    filetype = "NvimTree",
 				    text = "File Explorer",
 				    text_align = "center",
+				    highlight = "Directory",
 				    separator = true
 				}
 			},
