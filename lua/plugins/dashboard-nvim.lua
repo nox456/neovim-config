@@ -5,6 +5,7 @@ return {
 	opts = {
 		theme = 'doom',
 		shortcut_type = 'number',
+		disable_move = true,
 		config = {
 			header = {
 				'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
@@ -23,7 +24,15 @@ return {
 				'⠀⠀⠀⠀⠀⠰⣶⡾⠿⠀⠸⠋⠻⣿⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
 				'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀'
 			},
-			footer = {}
+			center = {
+				{
+					icon = '  ',
+					desc = 'Plugin Manager',
+					key = 'P',
+					action = 'Lazy'
+				}
+			},
+			footer = {'  I you can imagine it, you can program it '}
 		}
 
 	}
