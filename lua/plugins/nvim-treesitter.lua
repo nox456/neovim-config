@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	event = "BufEnter *.*",
+	event = {"BufEnter *.*", "BufEnter */.git/*"},
 	config = function()
 		local configs = require("nvim-treesitter.configs")
 

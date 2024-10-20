@@ -28,7 +28,7 @@ return {
 	{
     		'nvim-lualine/lualine.nvim',
     		dependencies = { 'nvim-tree/nvim-web-devicons' },
-		event = "BufEnter *.*",
+		event = {"BufEnter *.*", "BufEnter */.git/*"},
 		opts = {
 			sections = {
 				lualine_a = {'mode'},
