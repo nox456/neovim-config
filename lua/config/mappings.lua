@@ -1,8 +1,5 @@
 local map = vim.keymap.set
 
--- leader key
-vim.g.mapleader = ","
-
 -- Window mappings
 map("n", "<leader>q", "<cmd>q<CR>", { desc = "Close window under the cursor" })
 map("n", "<leader>q!", "<cmd>q!<CR>", { desc = "Close window (forced) under the cursor" })
@@ -18,3 +15,8 @@ map("n", "<leader>th", "<cmd>Themery<CR>", { desc = "Show theme picker" })
 
 -- Nvim-tree
 map("n","<leader>b","<cmd>NvimTreeToggle<CR>", { desc = "Show file explorer" } )
+
+-- Format Buffer
+map("n", "<leader>i", function() 
+    require("conform").format({ async = true })
+end, { desc = "Format the buffer under the cursos"})

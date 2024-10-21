@@ -1,3 +1,6 @@
+-- leader key
+vim.g.mapleader = ","
+
 local o = vim.opt
 
 -- show line numbers
@@ -26,3 +29,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- enable 24-bit colour
 o.termguicolors = true
+-- 4 spaces indentation
+o.tabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
+o.smartindent = true
+o.softtabstop = 2
