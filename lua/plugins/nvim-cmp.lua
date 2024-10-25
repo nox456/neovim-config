@@ -12,6 +12,9 @@ return {
 		local lspkind = require("lspkind")
 
 		cmp.setup({
+            completion = {
+                completeopt = "menu,menuone"
+            },
 			formatting = {
 				format = lspkind.cmp_format({
 					mode = "symbol_text",
