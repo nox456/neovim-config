@@ -10,13 +10,10 @@ map("n", "<F2>", "<cmd>bprev<CR>", { desc = "Go to previous buffer" })
 map("n", "<F3>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 map("n", "<leader>w", "<cmd>bdelete<CR>", { desc = "Close buffer under the cursor" })
 
--- Theme picker
-map("n", "<leader>th", "<cmd>Themery<CR>", { desc = "Show theme picker" })
-
 -- Nvim-tree
 map("n","<leader>b","<cmd>NvimTreeToggle<CR>", { desc = "Show file explorer" } )
 
 -- Format Buffer
-map("n", "<leader>i", function() 
+map("n", "<leader>i", function()
     require("conform").format({ async = true })
 end, { desc = "Format the buffer under the cursos"})
