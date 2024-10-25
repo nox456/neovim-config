@@ -1,11 +1,11 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	event = { "BufEnter *.*", "BufEnter */.git/*" },
 	dependencies = {
 		"onsails/lspkind.nvim",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline"
+        "hrsh7th/cmp-nvim-lsp"
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -22,18 +22,15 @@ return {
 				completion = cmp.config.window.bordered()
 			},
 			sources = {
+                { name = "nvim_lsp" },
 				{ name = "buffer" },
-				{ name = "path" },
-				{ name = "cmdline" }
+				{ name = "path" }
 			},
 			mapping = {
 				['<Tab>'] = cmp.mapping.select_next_item(),
 				['<S-Tab>'] = cmp.mapping.select_prev_item(),
 				['<CR>'] = cmp.mapping.confirm({ select = true })
-			},
-			cmp.setup.cmdline(':', {
-      				mapping = cmp.mapping.preset.cmdline()
-			})
+			}
 		})
 	end,
 }
