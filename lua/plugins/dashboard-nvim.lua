@@ -4,9 +4,7 @@ vim.api.nvim_create_autocmd("BufDelete", {
 		local windows = #vim.api.nvim_list_wins()
 		if bufname == "" and windows == 1 then
 			vim.o.showtabline = 0
-			vim.cmd("Dashboard")
-		end
-	end,
+			vim.cmd("Dashboard") end end,
 })
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
@@ -51,12 +49,21 @@ return {
 				"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
 			},
 			center = {
+                {
+                    icon = "  ",
+                    desc = "Projects",
+                    action = "Telescope project"
+                },
 				{
 					icon = "  ",
 					desc = "Plugin Manager",
-					key = "P",
 					action = "Lazy",
 				},
+                {
+                    icon = "󰺾  ",
+                    desc = "Mason",
+                    action = "Mason"
+                }
 			},
 			footer = { "  I you can imagine it, you can program it " },
 		},

@@ -17,3 +17,6 @@ map("n","<leader>b","<cmd>NvimTreeToggle<CR>", { desc = "Show file explorer" } )
 map("n", "<leader>i", function()
     require("conform").format({ async = true })
 end, { desc = "Format the buffer under the cursos"})
+
+-- Find Files
+map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace"})
