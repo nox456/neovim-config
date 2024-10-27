@@ -35,3 +35,5 @@ o.shiftwidth = 4
 o.expandtab = true
 o.smartindent = true
 o.softtabstop = 2
+-- use system clipboard
+o.clipboard = "unnamedplus"
