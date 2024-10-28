@@ -1,9 +1,5 @@
-local function time()
-	return " " .. os.date("%I:%M %p")
-end
-
 local function cwd()
-	return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 end
 
 local function ip()
@@ -21,7 +17,7 @@ local function ip()
 		ip = "localhost"
 	end
 
-	return "󰍹  " .. ip
+	return ip
 end
 
 return {
@@ -30,15 +26,40 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = { "BufEnter *.*", "BufEnter */.git/*" },
 		opts = {
-			sections = {
-				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff" },
-				lualine_c = { "diagnostics" },
-				lualine_x = { ip },
-				lualine_y = { cwd },
-				lualine_z = { time },
+			options = {
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "|", right = "|" },
 			},
-			extensions = { "nvim-tree" },
+			sections = {
+				lualine_a = {
+					{
+						"mode",
+						icon = "󰯙",
+						separator = { left = "" },
+					},
+				},
+				lualine_b = {
+					"branch",
+					{ "diff", symbols = { added = " ", modified = " ", removed = " " } },
+					"diagnostics",
+				},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {
+					{ cwd, icon = " " },
+					{ ip, icon = "󰍹 " },
+					{ "progress", icon = "" },
+				},
+				lualine_z = {
+					{
+						"datetime",
+						style = "%I:%M %p",
+						icon = "",
+						separator = { right = "" },
+					},
+				},
+			},
+			extensions = { "nvim-tree", "mason", "toggleterm" },
 		},
 	},
 }
