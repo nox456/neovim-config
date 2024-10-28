@@ -21,8 +21,7 @@ theme.set_highlights = function(c)
   hl(0, "WildMenu", { fg = c.base08, bg = c.base0A })
   hl(0, "CursorLineNr", { fg = c.white, bg = 'NONE' })
   hl(0, "Comment", { fg = c.grey_fg, bg = 'NONE' })
-  hl(0, "Folded", { fg = c.base03, bg = c.base01 })
-  hl(0, "FoldColumn", { fg = c.base0C, bg = c.base01 })
+  hl(0, "Folded", { fg = c.base03, bg = c.base01 }) hl(0, "FoldColumn", { fg = c.base0C, bg = c.base01 })
   hl(0, "LineNr", { fg = c.grey, bg = 'NONE' })
   hl(0, "FloatBorder", { fg = c.blue, bg = 'NONE' })
   hl(0, "VertSplit", { fg = c.line, bg = 'NONE' })
@@ -281,13 +280,6 @@ theme.set_highlights = function(c)
   hl(0, "BufferInactiveSign", { fg = c.grey, bg = c.darker_black })
   hl(0, "BufferInactiveTarget", { fg = c.red, bg = c.darker_black, bold=true, })
 
-  -- StatusLine
-  hl(0, "StatusLine", { fg = c.line, bg = c.statusline_bg })
-  hl(0, "StatusLineNC", { fg = 'NONE', bg = c.statusline_bg })
-  hl(0, "StatusLineSeparator", { fg = c.line, bg = 'NONE' })
-  hl(0, "StatusLineTerm", { fg = c.line, bg = 'NONE' })
-  hl(0, "StatusLineTermNC", { fg = c.line, bg = 'NONE' })
-
   -- IndentBlankline
   hl(0, "IndentBlanklineContextChar", { fg = c.grey, bg = 'NONE' })
   hl(0, "IndentBlanklineContextStart", { fg = 'NONE', bg = c.one_bg2 })
@@ -296,9 +288,9 @@ theme.set_highlights = function(c)
   hl(0, "IndentBlanklineSpaceCharBlankline", { fg = c.sun, bg = 'NONE' })
 
   -- Dashboard
-  hl(0, "DashboardHeader", { fg = c.blue, bg = 'NONE' })
-  hl(0, "DashboardCenter", { fg = c.purple, bg = 'NONE' })
-  hl(0, "DashboardFooter", { fg = c.cyan, bg = 'NONE' })
+  hl(0, "DashboardHeader", { fg = c.vibrant_green, bg = 'NONE' })
+  hl(0, "DashboardCenter", { fg = c.blue, bg = 'NONE' })
+  hl(0, "DashboardFooter", { fg = c.red, bg = 'NONE', italic = true })
 
   -- Cmp
   hl(0, "CmpItemAbbrDeprecated", { fg = c.grey, bg = 'NONE', strikethrough=true, })

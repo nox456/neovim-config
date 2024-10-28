@@ -1,6 +1,3 @@
--- load theme
-require("themes").setup("onedark")
-
 -- load options
 require("config.options")
 
@@ -9,3 +6,6 @@ require("config.lazy")
 
 -- load mappings
 require("config.mappings")
+
+-- load theme
+vim.cmd("colorscheme tokyonight-storm")
