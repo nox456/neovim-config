@@ -71,7 +71,7 @@ return {
 					action = "Mason",
 				},
 			},
-			footer = { "  I you can imagine it, you can program it " },
+			footer = { "  If you can imagine it, you can program it " },
 		},
 	},
 }
