@@ -29,7 +29,7 @@ map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in wo
 map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal name=Terminal<CR>", { desc = "Open horizontal terminal"})
 map("n", "<leader>tv", "<cmd>ToggleTerm size=40 direction=vertical name=Terminal<CR>", { desc = "Open vertical terminal"})
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float name=Terminal<CR>", { desc = "Open floating terminal"})
-map("t", "<Escape>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
+map("t", "<leader>q", "<C-\\><C-N><C-W>q", { desc = "Terminal Escape terminal mode" })
 
 -- Misc
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
