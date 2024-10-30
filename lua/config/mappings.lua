@@ -31,5 +31,8 @@ map("n", "<leader>tv", "<cmd>ToggleTerm size=40 direction=vertical name=Terminal
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float name=Terminal<CR>", { desc = "Open floating terminal"})
 map("t", "<leader>q", "<C-\\><C-N><C-W>q", { desc = "Terminal Escape terminal mode" })
 
+-- Git
+map("n", "<leader>g", "<cmd>LazyGit<CR>", { desc = "Open Git Manager" } )
+
 -- Misc
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
