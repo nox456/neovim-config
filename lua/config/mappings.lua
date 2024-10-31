@@ -30,6 +30,7 @@ map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal name=Terminal<CR>",
 map("n", "<leader>tv", "<cmd>ToggleTerm size=40 direction=vertical name=Terminal<CR>", { desc = "Open vertical terminal"})
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float name=Terminal<CR>", { desc = "Open floating terminal"})
 map("t", "<leader>q", "<C-\\><C-N><C-W>q", { desc = "Terminal Escape terminal mode" })
+map("t", "<C-W>", "<C-\\><C-N><C-W>", { desc = "Switch windows focus in terminal mode" })
 
 -- Git
 map("n", "<leader>g", "<cmd>LazyGit<CR>", { desc = "Open Git Manager" } )
