@@ -26,11 +26,10 @@ end, { desc = "Format the buffer under the cursor"})
 map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace"})
 
 -- Terminals
-map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal name=Terminal<CR>", { desc = "Open horizontal terminal"})
-map("n", "<leader>tv", "<cmd>ToggleTerm size=40 direction=vertical name=Terminal<CR>", { desc = "Open vertical terminal"})
+map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { desc = "Open horizontal terminal"})
+map("n", "<leader>tv", ":ToggleTerm size=40 direction=vertical<CR>", { desc = "Open vertical terminal"})
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float name=Terminal<CR>", { desc = "Open floating terminal"})
-map("t", "<leader>q", "<C-\\><C-N><C-W>q", { desc = "Terminal Escape terminal mode" })
-map("t", "<C-W>", "<C-\\><C-N><C-W>", { desc = "Switch windows focus in terminal mode" })
+map("t", "<leader><Esc>", "<C-\\><C-N>", { desc = "Espace from terminal mode" })
 
 -- Git
 map("n", "<leader>g", "<cmd>LazyGit<CR>", { desc = "Open Git Manager" } )
