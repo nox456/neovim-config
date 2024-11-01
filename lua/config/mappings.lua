@@ -22,13 +22,15 @@ map("n", "<leader>i", function()
     require("conform").format({ async = true })
 end, { desc = "Format the buffer under the cursor"})
 
--- Find Files
-map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace"})
+-- Telescope
+map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace "})
+map("n", "<leader>P", "<cmd>Telescope project<CR>", { desc  = "Open projects manager "})
 
 -- Terminals
 map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { desc = "Open horizontal terminal"})
 map("n", "<leader>tv", ":ToggleTerm size=40 direction=vertical<CR>", { desc = "Open vertical terminal"})
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float name=Terminal<CR>", { desc = "Open floating terminal"})
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab name=Terminal<CR>", { desc = "Open full terminal in tab "})
 map("t", "<leader><Esc>", "<C-\\><C-N>", { desc = "Espace from terminal mode" })
 
 -- Git
