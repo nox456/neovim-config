@@ -1,8 +1,7 @@
 vim.api.nvim_create_autocmd("BufDelete", {
 	callback = function()
 		local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(0))
-		local windows = #vim.api.nvim_list_wins()
-		if bufname == "" and windows == 1 then
+		if bufname == "" then
 			vim.o.showtabline = 0
 			vim.cmd("Dashboard")
 		end
