@@ -37,3 +37,8 @@ o.smartindent = true
 o.softtabstop = 2
 -- use system clipboard
 o.clipboard = "unnamedplus"
+-- Folds options
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true
+

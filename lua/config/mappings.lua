@@ -38,3 +38,7 @@ map("n", "<leader>g", "<cmd>LazyGit<CR>", { desc = "Open Git Manager" } )
 
 -- Misc
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Folds
+map("n", "<leader><","zc",{ desc = "Fold", remap = true })
+map("n", "<leader>>","za",{ desc = "Unfold", remap = true })
