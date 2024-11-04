@@ -10,6 +10,6 @@ return {
 		status = {
 			HEAD_folded = true,
 		},
-		commit_editor = { show_staged_diff = false },
+		commit_editor = { show_staged_diff = false, spell_checker = false },
 	},
 }
