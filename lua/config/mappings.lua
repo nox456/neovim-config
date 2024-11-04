@@ -34,7 +34,7 @@ map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab name=Terminal<CR>", { desc
 map("t", "<leader><Esc>", "<C-\\><C-N>", { desc = "Espace from terminal mode" })
 
 -- Git
-map("n", "<leader>g", "<cmd>LazyGit<CR>", { desc = "Open Git Manager" } )
+map("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Git Manager" } )
 
 -- Misc
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
