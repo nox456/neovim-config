@@ -6,6 +6,7 @@ return {
 	opts = {
 		disable_hint = true,
 		disable_insert_on_commit = false,
+        console_timeout = 8000,
 		status = {
 			HEAD_folded = true,
 		},
