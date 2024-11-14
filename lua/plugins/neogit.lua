@@ -7,9 +7,10 @@ return {
 		disable_hint = true,
 		disable_insert_on_commit = false,
         console_timeout = 8000,
+        auto_show_console = false,
 		status = {
 			HEAD_folded = true,
 		},
-		commit_editor = { show_staged_diff = false, spell_checker = false },
+		commit_editor = { spell_check = false },
 	},
 }
