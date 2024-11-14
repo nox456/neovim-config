@@ -1,7 +1,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
-	event = { "BufEnter *.*", "BufEnter */.git/*" },
+	event = { "BufEnter *.*", "BufEnter */.git/*", "BufEnter */new"},
 	dependencies = { "nvim-tree/nvim-web-devicons", { "tiagovla/scope.nvim", opts = {} } },
 	opts = {
 		options = {
