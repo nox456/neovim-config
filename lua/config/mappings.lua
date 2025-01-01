@@ -3,6 +3,10 @@ local map = vim.keymap.set
 -- Window mappings
 map("n", "<leader>q", "<cmd>q<CR>", { desc = "Close window under the cursor" })
 map("n", "<leader>q!", "<cmd>q!<CR>", { desc = "Close window (forced) under the cursor" })
+map("n", "<C-W>=", "<cmd>horizontal resize +5<CR>", { desc = "Increase window height" })
+map("n", "<C-W>-", "<cmd>horizontal resize -5<CR>", { desc = "Decrease window height", remap = true })
+map("n", "<C-W>+", "<cmd>vertical resize +5<CR>", { desc = "Increase window width", remap = true })
+map("n", "<C-W>_", "<cmd>vertical resize -5<CR>", { desc = "Decrease window width" })
 
 -- Buffer mappings
 map("n", "<leader>s", "<cmd>w<CR>", { desc = "Save buffer under the cursor" })
@@ -39,6 +43,9 @@ map("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Git Manager" })
 -- Misc
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- REST
+map("n", "<leader>x", "<cmd>Rest run<CR>")
+
 -- Folds
 map("n", "<leader><", "zc", { desc = "Fold", remap = true })
 map("n", "<leader>>", "za", { desc = "Unfold", remap = true })
@@ -46,4 +53,3 @@ map("n", "<leader>>", "za", { desc = "Unfold", remap = true })
 -- Comment
 map("n", "<leader>k", "gcc", { desc = "Comment", remap = true })
 map("v", "<leader>k", "gc", { desc = "Comment", remap = true })
-
