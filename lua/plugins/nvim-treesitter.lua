@@ -1,12 +1,12 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	event = {"BufEnter *.*", "BufEnter */.git/*"},
+	event = { "BufEnter *.*", "BufEnter */.git/*" },
 	config = function()
 		local configs = require("nvim-treesitter.configs")
 
 		configs.setup({
-			ensure_installed = { 
+			ensure_installed = {
 				"html",
 				"css",
 				"gitcommit",
@@ -19,15 +19,15 @@ return {
 				"markdown",
 				"markdown_inline",
 				"python",
-				"sql"
+				"sql",
 			},
 			sync_install = false,
 			highlight = {
-				enable = true
+				enable = true,
 			},
-            indent = {
-                enable = true
-            }
+			indent = {
+				enable = true,
+			},
 		})
-	end
+	end,
 }
