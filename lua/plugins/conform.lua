@@ -9,6 +9,7 @@ return {
             css = { "prettier" },
             json = { "prettier" },
             python = { "black" },
+            vue = { "prettier" }
         },
         formatters = {
             prettier = {
