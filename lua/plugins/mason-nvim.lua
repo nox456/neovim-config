@@ -34,6 +34,7 @@ return {
 		require("lspconfig").cssls.setup({
 			capabilities = capabilities,
 		})
+        -- Vue.js LSP configuration
 		require("lspconfig").volar.setup({
             capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			init_options = {
