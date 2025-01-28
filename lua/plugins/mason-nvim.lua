@@ -3,6 +3,11 @@ return {
 	lazy = false,
 	dependencies = {
 		"neovim/nvim-lspconfig",
+        {
+            "folke/lazydev.nvim",
+            ft = "lua",
+            opts = {}
+        }
 	},
 	config = function()
 		require("mason").setup()
