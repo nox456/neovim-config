@@ -59,6 +59,11 @@ return {
 					desc = "Projects",
 					action = "Telescope project",
 				},
+                {
+                    icon = "  ",
+                    desc = "Tasks",
+                    action = "Tasks"
+                },
 				{
 					icon = "  ",
 					desc = "Plugin Manager",
