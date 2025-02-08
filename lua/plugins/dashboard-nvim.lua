@@ -59,11 +59,11 @@ return {
 					desc = "Projects",
 					action = "Telescope project",
 				},
-                {
-                    icon = "  ",
-                    desc = "Tasks",
-                    action = "Tasks"
-                },
+				{
+					icon = "  ",
+					desc = "Tasks",
+					action = "Tasks",
+				},
 				{
 					icon = "  ",
 					desc = "Plugin Manager",
@@ -75,7 +75,11 @@ return {
 					action = "Mason",
 				},
 			},
-			footer = { "  If you can imagine it, you can program it " },
+			footer = function()
+				local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+				return { "  If you can imagine it, you can program it ", "", "  " .. cwd }
+			end,
+            vertical_center = true
 		},
 	},
 }
