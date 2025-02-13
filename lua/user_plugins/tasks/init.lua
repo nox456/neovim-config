@@ -14,13 +14,15 @@ local function create_floating_window()
 		height = height,
 		border = "rounded",
 	})
-	vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "Loading..." })
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "Loading...", "" })
+	vim.api.nvim_win_set_cursor(0, { 2, 0 })
 	vim.opt_local.modifiable = false
 end
 local function update_floating_window(data)
 	local buf = vim.api.nvim_win_get_buf(0)
 	vim.opt_local.modifiable = true
 	vim.api.nvim_buf_set_lines(buf, 0, -1, false, data)
+	vim.api.nvim_win_set_cursor(0, { #data, 0 })
 	vim.opt_local.modifiable = false
 end
 
@@ -28,14 +30,14 @@ local function parse_lines(projects)
 	local lines = {}
 	for _, project in ipairs(projects) do
 		table.insert(lines, "-- " .. project["title"] .. " --")
-		table.insert(lines, "Tasks: ")
 		for _, task in ipairs(project["tasks"]) do
 			table.insert(lines, "* " .. task)
 		end
 	end
 	table.insert(lines, "")
-	table.insert(lines, "--Keymaps:--")
+	table.insert(lines, "-- Keymaps:")
 	table.insert(lines, "q - Close tasks window")
+	table.insert(lines, "")
 	vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = 0 })
 	return lines
 end

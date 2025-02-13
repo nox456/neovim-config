@@ -43,7 +43,7 @@ for (const project of projects_data) {
         );
         const task_data = await task_res.json();
 
-        tasks.push(task_data.bulleted_list_item.rich_text[0].plain_text);
+        tasks.push(task_data.bulleted_list_item.rich_text.map(text => text.plain_text).join(""));
     }
     projects.push({
         title: project_title,
