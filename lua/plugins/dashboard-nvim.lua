@@ -75,10 +75,7 @@ return {
 					action = "Mason",
 				},
 			},
-			footer = function()
-				local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-				return { "  If you can imagine it, you can program it ", "", "  " .. cwd }
-			end,
+			footer = "  If you can imagine it, you can program it ",
             vertical_center = true
 		},
 	},
