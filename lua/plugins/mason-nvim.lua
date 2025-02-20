@@ -29,10 +29,22 @@ return {
 		end
 		-- Exclude emmet in css files
 		require("lspconfig").emmet_language_server.setup({
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			init_options = {
 				excludeLanguages = { "css" },
 			},
+            filetypes = {
+                "html",
+                "handlebars"
+            }
 		})
+        require("lspconfig").html.setup({
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            filetypes = {
+                "html",
+                "handlebars"
+            }
+        })
 		-- Enable completion in css
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true

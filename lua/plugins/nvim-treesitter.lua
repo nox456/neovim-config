@@ -20,6 +20,7 @@ return {
 				"markdown_inline",
 				"python",
 				"sql",
+                "glimmer"
 			},
 			sync_install = false,
 			highlight = {
