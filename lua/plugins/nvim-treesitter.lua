@@ -13,6 +13,7 @@ return {
 				"gitignore",
 				"http",
 				"javascript",
+				"typescript",
 				"json",
 				"jsdoc",
 				"lua",

@@ -1,0 +1,10 @@
+{
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.infoSign": "󰋽",
+    "diagnostic.errorSign": "󰅚",
+    "diagnostic.warningSign": "󰀪",
+    "diagnostic.hintSign": "󰌶",
+    "diagnostic.virtualTextPrefix": " ",
+    "prettier.tabWidth": 4,
+}

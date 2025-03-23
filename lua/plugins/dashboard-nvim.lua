@@ -69,11 +69,6 @@ return {
 					desc = "Plugin Manager",
 					action = "Lazy",
 				},
-				{
-					icon = "󰺾  ",
-					desc = "Mason",
-					action = "Mason",
-				},
 			},
 			footer = "  If you can imagine it, you can program it ",
             vertical_center = true

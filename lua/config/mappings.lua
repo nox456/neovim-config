@@ -22,9 +22,7 @@ map("n", "<leader>Q", "<cmd>tabclose<CR>", { desc = "Close actual tab" })
 map("n", "<leader>b", "<cmd>NvimTreeToggle<CR>", { desc = "Show file explorer" })
 
 -- Format Buffer
-map("n", "<leader>i", function()
-	require("conform").format({ async = true })
-end, { desc = "Format the buffer under the cursor" })
+map("n", "<leader>i", "<cmd>Format<CR>", { desc = "Format the buffer under the cursor" })
 
 -- Telescope
 map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace " })
