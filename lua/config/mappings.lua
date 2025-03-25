@@ -29,11 +29,15 @@ map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in wo
 map("n", "<leader>P", "<cmd>Telescope project<CR>", { desc = "Open projects manager " })
 
 -- Terminals
-map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { desc = "Open horizontal terminal" })
-map("n", "<leader>tv", ":ToggleTerm size=40 direction=vertical<CR>", { desc = "Open vertical terminal" })
-map("n", "<leader>tf", "<cmd>ToggleTerm direction=float name=Terminal<CR>", { desc = "Open floating terminal" })
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab name=Terminal<CR>", { desc = "Open full terminal in tab " })
+map("n", "<leader>th", "<cmd>TermNew direction=horizontal<CR>", { desc = "Open horizontal terminal" })
+map("n", "<leader>tv", "<cmd>TermNew direction=vertical<CR>", { desc = "Open vertical terminal" })
+map("n", "<leader>tf", "<cmd>TermNew direction=float name=Terminal<CR>", { desc = "Open floating terminal" })
+map("n", "<leader>tt", "<cmd>TermNew direction=tab name=Terminal<CR>", { desc = "Open full terminal in tab " })
 map("t", "<Esc><Esc>", "<C-\\><C-N>", { desc = "Espace from terminal mode" })
+map("t", "<leader>th", "<C-\\><C-N><cmd>TermNew direction=horizontal<CR>", { desc = "Open horizontal terminal" })
+map("t", "<leader>tv", "<C-\\><C-N><cmd>TermNew direction=vertical<CR>", { desc = "Open vertical terminal" })
+map("t", "<leader>tf", "<C-\\><C-N><cmd>TermNew direction=float name=Terminal<CR>", { desc = "Open floating terminal" })
+map("t", "<leader>tt", "<C-\\><C-N><cmd>TermNew direction=tab name=Terminal<CR>", { desc = "Open full terminal in tab " })
 
 -- Git
 map("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Git Manager" })
