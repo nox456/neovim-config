@@ -43,3 +43,6 @@ o.foldlevelstart = 99
 o.foldenable = true
 -- Vertical splits
 o.splitright = true
+-- Disable invisible line at the end of the file
+o.binary = true
+o.endoffile = true
