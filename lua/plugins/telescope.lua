@@ -13,6 +13,7 @@ return {
 					theme = "dropdown",
 					on_project_selected = function(prompt_bufnr)
 						require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr)
+                        require("snacks").dashboard.update()
 					end,
 					mappings = {
 						n = {
