@@ -25,7 +25,8 @@ map("n", "<leader>b", "<cmd>NvimTreeToggle<CR>", { desc = "Show file explorer" }
 map("n", "<leader>i", "<cmd>Format<CR>", { desc = "Format the buffer under the cursor" })
 
 -- Telescope
-map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace " })
+map("n", "<leader>f", "<cmd>Telescope live_grep<CR>", { desc = "Find words in workspace" })
+map("n", "<leader>F", "<cmd>Telescope find_files<CR>", { desc = "Find files in workspace" })
 map("n", "<leader>P", "<cmd>Telescope project<CR>", { desc = "Open projects manager " })
 
 -- Terminals
@@ -41,6 +42,8 @@ map("t", "<leader>tt", "<C-\\><C-N><cmd>TermNew direction=tab name=Terminal<CR>"
 
 -- Git
 map("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Git Manager" })
+map("n", "<leader>ng", "<cmd>Gitsigns next_hunk<CR>", { desc = "Go to next git change in file" })
+map("n", "<leader>pg", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Go to previous git change in file" })
 
 -- Misc
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -55,3 +58,8 @@ map("n", "<leader>>", "za", { desc = "Unfold", remap = true })
 -- Comment
 map("n", "<leader>k", "gcc", { desc = "Comment", remap = true })
 map("v", "<leader>k", "gc", { desc = "Comment", remap = true })
+
+-- Copilot Accept
+map("i", "<leader><Tab>", 'copilot#Accept("\\<CR>")',
+	{ desc = "Accept Copilot suggestion", expr = true, replace_keycodes = false })
+vim.g.copilot_no_tab_map = true
