@@ -1,7 +1,8 @@
 vim.api.nvim_create_autocmd("BufDelete", {
     callback = function()
         local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(0))
-        if bufname == "" then
+		local windows = #vim.api.nvim_tabpage_list_wins(0)
+        if bufname == "" and windows == 1 then
             vim.o.showtabline = 0
             require("snacks").dashboard({ win = 0, buf = vim.api.nvim_win_get_buf(0) })
         end
@@ -20,6 +21,23 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end,
 })
+local function ip()
+	local n = os.tmpname()
+
+	os.execute("ip -o -4 addr list wlan0 | awk '{print $4}' | cut -d/ -f1 > " .. n)
+
+	local ip
+	for line in io.lines(n) do
+		ip = line
+	end
+	os.remove(n)
+
+	if ip == nil then
+		ip = "localhost"
+	end
+
+	return ip
+end
 return {
     "folke/snacks.nvim",
     priority = 1000,
@@ -95,7 +113,7 @@ return {
                     cmd = "gh issue list --assignee '@me'",
                     height = 10,
                     enabled = function()
-                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+                        return (require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100) and ip() ~= "localhost"
                     end
                 },
                 {
@@ -106,7 +124,8 @@ return {
                     cmd = "gh pr list --author '@me'",
                     height = 10,
                     enabled = function()
-                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+                        return (require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100) and ip() ~= "localhost"
+
                     end
                 },
             }
