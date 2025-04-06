@@ -1,5 +1,6 @@
 lazy-lock.json
 
 lua/user_plugins/tasks/data.json
+lua/user_plugins/tasks/.env
 
 .luarc.json
