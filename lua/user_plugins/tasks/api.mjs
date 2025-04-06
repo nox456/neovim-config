@@ -9,7 +9,7 @@ const HEADERS = {
 };
 
 const respones = await fetch(
-    "https://api.notion.com/v1/blocks/e65a0d37-6866-44d5-829e-726aaa848e0d/children",
+    process.env.NOTION_API,
     {
         headers: HEADERS,
     },

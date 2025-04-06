@@ -45,7 +45,7 @@ end
 vim.api.nvim_create_user_command("Tasks", function()
 	async.run(create_floating_window, function()
 		local path = vim.fn.stdpath("config")
-		vim.fn.jobstart({ "node", path .. "/lua/user_plugins/tasks/api.mjs" }, {
+		vim.fn.jobstart({ "node", "--env-file", path .. "/lua/user_plugins/tasks/.env", path .. "/lua/user_plugins/tasks/api.mjs" }, {
 			on_exit = function()
 				local file = io.open(path .. "/lua/user_plugins/tasks/data.json", "r")
 				local projects = vim.json.decode(file:read()).projects
