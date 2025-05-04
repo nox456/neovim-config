@@ -58,8 +58,3 @@ map("n", "<leader>>", "za", { desc = "Unfold", remap = true })
 -- Comment
 map("n", "<leader>k", "gcc", { desc = "Comment", remap = true })
 map("v", "<leader>k", "gc", { desc = "Comment", remap = true })
-
--- Copilot Accept
-map("i", "<leader><Tab>", 'copilot#Accept("\\<CR>")',
-	{ desc = "Accept Copilot suggestion", expr = true, replace_keycodes = false })
-vim.g.copilot_no_tab_map = true
