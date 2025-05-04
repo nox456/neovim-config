@@ -24,7 +24,13 @@ return {
 		sync_root_with_cwd = true,
 		renderer = {
 			root_folder_label = false,
-			highlight_opened_files = "name",
+			highlight_diagnostics = "name",
+			full_name = true,
+			special_files = { "README.md", "readme.md", "package.json", "package-lock.json" },
+			hidden_display = "all",
+			indent_markers = {
+				enable = true,
+			}
 		},
 		filters = {
 			dotfiles = true,
@@ -37,5 +43,13 @@ return {
 				quit_on_open = true,
 			},
 		},
+		diagnostics = {
+			enable = true,
+			show_on_dirs = true,
+		},
+		view = {
+			preserve_window_proportions = true,
+			number = true,
+		}
 	},
 }
