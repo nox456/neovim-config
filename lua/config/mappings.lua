@@ -10,12 +10,14 @@ map("n", "<C-W>_", "<cmd>vertical resize -5<CR>", { desc = "Decrease window widt
 
 -- Buffer mappings
 map("n", "<leader>s", "<cmd>w<CR>", { desc = "Save buffer under the cursor" })
-map("n", "<F2>", "<cmd>bprev<CR>", { desc = "Go to previous buffer" })
-map("n", "<F3>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
+map("n", "<A-2>", "<cmd>bprev<CR>", { desc = "Go to previous buffer" })
+map("n", "<A-3>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 map("n", "<leader>w", "<cmd>Bdelete<CR>", { desc = "Close buffer under the cursor" })
 map("n", "<leader>T", "<cmd>tabnew<CR>", { desc = "Create a new tab" })
-map("n", "<F5>", "<cmd>tabnext<CR>", { desc = "Got to next tab" })
-map("n", "<F4>", "<cmd>tabprevious<CR>", { desc = "Go to previous tab" })
+map("n", "<A-5>", "<cmd>tabnext<CR>", { desc = "Got to next tab" })
+map("t", "<A-5>", "<C-\\><C-N><cmd>tabnext<CR>", { desc = "Got to next tab in terminal mode" })
+map("n", "<A-4>", "<cmd>tabprevious<CR>", { desc = "Go to previous tab" })
+map("t", "<A-4>", "<C-\\><C-N><cmd>tabprevious<CR>", { desc = "Go to previous tab in terminal mode" })
 map("n", "<leader>Q", "<cmd>tabclose<CR>", { desc = "Close actual tab" })
 
 -- Nvim-tree
