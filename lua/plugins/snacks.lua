@@ -87,12 +87,38 @@ return {
                         desc = "Plugin Manager",
                         action = ":Lazy",
                     },
+					{
+						icon = "  ",
+						desc = "GitHub Dashboard",
+						action = ":GHdash",
+					}
                 }
             },
             sections = {
                 { section = "header" },
                 { section = "keys", pane = 1, gap = 1, indent = 40 },
                 { text = "\n  If you can imagine it, you can program it ", pane = 1, align = "center" },
+				{
+					section = "terminal",
+					pane = 2,
+					cmd = "figlet -f slant -c -t -E 'N o x' | lolcat -a",
+					height = 7,
+					random = 20,
+                    enabled = function()
+                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+                    end
+				},
+				{
+					section = "terminal",
+					pane = 2,
+					title = "Current Branch\n",
+					icon = "",
+					height = 3,
+					cmd = "git branch --show-current",
+                    enabled = function()
+                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+                    end
+				},
                 {
                     section = "terminal",
                     pane = 2,
@@ -125,7 +151,6 @@ return {
                     height = 10,
                     enabled = function()
                         return (require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100) and ip() ~= "localhost"
-
                     end
                 },
             }
