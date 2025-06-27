@@ -7,4 +7,5 @@
     "diagnostic.hintSign": "󰌶",
     "diagnostic.virtualTextPrefix": " ",
     "prettier.tabWidth": 4,
+	"pylsp.plugins.pycodestyle.maxLineLength": 90
 }
