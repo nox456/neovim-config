@@ -77,11 +77,11 @@ return {
                         desc = "Projects",
                         action = ":Telescope project",
                     },
-                    {
-                        icon = "  ",
-                        desc = "Tasks",
-                        action = ":Tasks",
-                    },
+                    -- {
+                    --     icon = "  ",
+                    --     desc = "Tasks",
+                    --     action = ":Tasks",
+                    -- },
                     {
                         icon = "  ",
                         desc = "Plugin Manager",
@@ -101,8 +101,8 @@ return {
 				{
 					section = "terminal",
 					pane = 2,
-					cmd = "figlet -f slant -c -t -E 'N o x' | lolcat -a",
-					height = 7,
+					cmd = "fortune programming",
+					height = 3,
 					random = 20,
                     enabled = function()
                         return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
