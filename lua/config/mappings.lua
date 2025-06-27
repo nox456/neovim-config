@@ -41,6 +41,10 @@ map("t", "<leader>th", "<C-\\><C-N><cmd>TermNew direction=horizontal<CR>", { des
 map("t", "<leader>tv", "<C-\\><C-N><cmd>TermNew direction=vertical<CR>", { desc = "Open vertical terminal" })
 map("t", "<leader>tf", "<C-\\><C-N><cmd>TermNew direction=float name=Terminal<CR>", { desc = "Open floating terminal" })
 map("t", "<leader>tt", "<C-\\><C-N><cmd>TermNew direction=tab name=Terminal<CR>", { desc = "Open full terminal in tab " })
+map("t", "<C-W>h", "<C-\\><C-N><cmd>wincmd h<CR>", { desc = "Go to left terminal" })
+map("t", "<C-W>j", "<C-\\><C-N><cmd>wincmd j<CR>", { desc = "Go to bottom terminal" })
+map("t", "<C-W>k", "<C-\\><C-N><cmd>wincmd k<CR>", { desc = "Go to top terminal" })
+map("t", "<C-W>l", "<C-\\><C-N><cmd>wincmd l<CR>", { desc = "Go to right terminal" })
 
 -- Git
 map("n", "<leader>g", "<cmd>Neogit<CR>", { desc = "Open Git Manager" })
