@@ -8,7 +8,7 @@ require("config.lazy")
 require("config.mappings")
 
 -- load user plugins
-require("user_plugins.tasks")
+-- require("user_plugins.tasks")
 
 -- load theme
 vim.cmd("colorscheme tokyonight-storm")
