@@ -7,5 +7,12 @@
     "diagnostic.hintSign": "󰌶",
     "diagnostic.virtualTextPrefix": " ",
     "prettier.tabWidth": 4,
-	"pylsp.plugins.pycodestyle.maxLineLength": 90
+    "pylsp.plugins.pycodestyle.maxLineLength": 90,
+    "pylsp.enable": false,
+	"python.pythonPath": "python",
+	"python.formatting.provider": "none",
+	"pyright.inlayHints.variableTypes": false,
+	"pyright.inlayHints.functionReturnTypes": false,
+	"pyright.inlayHints.parameterTypes": false,
+	"black-formatter.useDetectBlackCommand": false,
 }
