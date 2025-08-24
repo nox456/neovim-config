@@ -46,3 +46,5 @@ o.splitright = true
 -- Disable invisible line at the end of the file
 o.binary = true
 o.endoffile = true
+
+o.laststatus = 3
