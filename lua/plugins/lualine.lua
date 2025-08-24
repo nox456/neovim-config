@@ -2,6 +2,16 @@ local function cwd()
 	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 end
 
+local function relative_path()
+	local filepath = vim.fn.expand("%:p")
+	local cwd = vim.fn.getcwd()
+	if filepath:find(cwd, 1, true) == 1 then
+		return filepath:sub(#cwd + 2, -(#vim.fn.expand("%:t")) - 2)
+	else
+		return vim.fn.expand("%:t") -- fallback to filename only
+	end
+end
+
 local function ip()
 	local n = os.tmpname()
 
@@ -43,7 +53,9 @@ return {
 					{ "diff", symbols = { added = " ", modified = " ", removed = " " } },
 					"diagnostics",
 				},
-				lualine_c = {},
+				lualine_c = {
+					{ relative_path },
+				},
 				lualine_x = {
 					"lsp_status"
 				},
