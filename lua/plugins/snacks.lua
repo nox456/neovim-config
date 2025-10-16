@@ -48,29 +48,39 @@ return {
             pane_gap = 8,
             width = 100,
             preset = {
-                header = [[
- ________   ________   ________   ________   ___   _______    ___          
-|\   ____\ |\   __  \ |\   __  \ |\   __  \ |\  \ |\  ___ \  |\  \         
-\ \  \___| \ \  \|\  \\ \  \|\ /_\ \  \|\  \\ \  \\ \   __/| \ \  \        
- \ \  \  ___\ \   __  \\ \   __  \\ \   _  _\\ \  \\ \  \_|/__\ \  \       
-  \ \  \|\  \\ \  \ \  \\ \  \|\  \\ \  \\  \|\ \  \\ \  \_|\ \\ \  \____  
-   \ \_______\\ \__\ \__\\ \_______\\ \__\\ _\ \ \__\\ \_______\\ \_______\
-    \|_______| \|__|\|__| \|_______| \|__|\|__| \|__| \|_______| \|_______|
-
-⠀⠀⠀⠀⠀⠀⠀⠀⢠⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⡰⠿⠿⠿⠿⢆⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣴⣷⡀⠀⠀⢀⣼⣦⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⣼⣿⣿⣷⡀⢀⣾⣿⣿⣧⡀⠀⠀⠀⠀
-
-         ___      ___  ___   _______    ___   ________   ________     
-        |\  \    /  /||\  \ |\  ___ \  |\  \ |\   __  \ |\   __  \    
-        \ \  \  /  / /\ \  \\ \   __/| \ \  \\ \  \|\  \\ \  \|\  \   
-         \ \  \/  / /  \ \  \\ \  \_|/__\ \  \\ \   _  _\\ \   __  \  
-          \ \    / /    \ \  \\ \  \_|\ \\ \  \\ \  \\  \|\ \  \ \  \ 
-           \ \__/ /      \ \__\\ \_______\\ \__\\ \__\\ _\ \ \__\ \__\
-            \|__|/        \|__| \|_______| \|__| \|__|\|__| \|__|\|__|
-            ]],
+--                 header = [[
+--  ________   ________   ________   ________   ___   _______    ___          
+-- |\   ____\ |\   __  \ |\   __  \ |\   __  \ |\  \ |\  ___ \  |\  \         
+-- \ \  \___| \ \  \|\  \\ \  \|\ /_\ \  \|\  \\ \  \\ \   __/| \ \  \        
+--  \ \  \  ___\ \   __  \\ \   __  \\ \   _  _\\ \  \\ \  \_|/__\ \  \       
+--   \ \  \|\  \\ \  \ \  \\ \  \|\  \\ \  \\  \|\ \  \\ \  \_|\ \\ \  \____  
+--    \ \_______\\ \__\ \__\\ \_______\\ \__\\ _\ \ \__\\ \_______\\ \_______\
+--     \|_______| \|__|\|__| \|_______| \|__|\|__| \|__| \|_______| \|_______|
+--
+-- ⠀⠀⠀⠀⠀⠀⠀⠀⢠⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-- ⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀
+-- ⠀⠀⠀⠀⠀⠀⡰⠿⠿⠿⠿⢆⠀⠀⠀⠀⠀⠀⠀
+-- ⠀⠀⠀⠀⠀⣴⣷⡀⠀⠀⢀⣼⣦⠀⠀⠀⠀⠀⠀
+-- ⠀⠀⠀⠀⣼⣿⣿⣷⡀⢀⣾⣿⣿⣧⡀⠀⠀⠀⠀
+--
+--          ___      ___  ___   _______    ___   ________   ________     
+--         |\  \    /  /||\  \ |\  ___ \  |\  \ |\   __  \ |\   __  \    
+--         \ \  \  /  / /\ \  \\ \   __/| \ \  \\ \  \|\  \\ \  \|\  \   
+--          \ \  \/  / /  \ \  \\ \  \_|/__\ \  \\ \   _  _\\ \   __  \  
+--           \ \    / /    \ \  \\ \  \_|\ \\ \  \\ \  \\  \|\ \  \ \  \ 
+--            \ \__/ /      \ \__\\ \_______\\ \__\\ \__\\ _\ \ \__\ \__\
+--             \|__|/        \|__| \|_______| \|__| \|__|\|__| \|__|\|__|
+--             ]],
+				header = [[
+ _        _______  _______          _________ _______ 
+( (    /|(  ____ \(  ___  )|\     /|\__   __/(       )
+|  \  ( || (    \/| (   ) || )   ( |   ) (   | () () |
+|   \ | || (__    | |   | || |   | |   | |   | || || |
+| (\ \) ||  __)   | |   | |( (   ) )   | |   | |(_)| |
+| | \   || (      | |   | | \ \_/ /    | |   | |   | |
+| )  \  || (____/\| (___) |  \   /  ___) (___| )   ( |
+|/    )_)(_______/(_______)   \_/   \_______/|/     \|
+				]],
                 keys = {
                     {
                         icon = "  ",
@@ -95,42 +105,46 @@ return {
                 }
             },
             sections = {
-                { section = "header" },
+				{section = "header"},
+				{section = "terminal", cmd = 'cmatrix -u 8 -C blue -m -b -M "$(fortune programming)"',  height = 20, padding = 1, pane = 2, random = 20, enabled = function ()
+					return not (require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100)
+				end},
+				-- { section = "terminal", cmd = "chafa ~/Imágenes/Wallpapers/woods.jpg --format symbols --symbols vhalf --probe off --align center --stretch --size 100x18", ttl = 0, height = 20},
                 { section = "keys", pane = 1, gap = 1, indent = 40 },
                 { text = "\n  If you can imagine it, you can program it ", pane = 1, align = "center" },
-				{
-					section = "terminal",
-					pane = 2,
-					cmd = "fortune programming",
-					height = 3,
-					random = 20,
-                    enabled = function()
-                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
-                    end
-				},
-				{
-					section = "terminal",
-					pane = 2,
-					title = "Current Branch\n",
-					icon = "",
-					height = 3,
-					cmd = "git branch --show-current",
-                    enabled = function()
-                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
-                    end
-				},
-                {
-                    section = "terminal",
-                    pane = 2,
-                    title = "Recent Commits\n",
-                    icon = "",
-                    cmd = "git log --pretty=format:'%C(yellow)%h %C(green)(%an)%Creset %s' -n 5",
-                    padding = 3,
-                    height = 7,
-                    enabled = function()
-                        return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
-                    end
-                },
+				-- {
+				-- 	section = "terminal",
+				-- 	pane = 2,
+				-- 	cmd = "fortune programming",
+				-- 	height = 3,
+				-- 	random = 20,
+				--                 enabled = function()
+				--                     return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+				--                 end
+				-- },
+				-- {
+				-- 	section = "terminal",
+				-- 	pane = 2,
+				-- 	title = "Current Branch\n",
+				-- 	icon = "",
+				-- 	height = 3,
+				-- 	cmd = "git branch --show-current",
+				--                 enabled = function()
+				--                     return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+				--                 end
+				-- },
+				            {
+				                section = "terminal",
+				                pane = 2,
+				                title = "Recent Commits\n",
+				                icon = "",
+				                cmd = "git log --pretty=format:'%C(yellow)%h %C(green)(%an)%Creset %s' -n 5",
+				                padding = 3,
+				                height = 7,
+				                enabled = function()
+				                    return require("snacks").git.get_root() ~= nil and vim.api.nvim_win_get_width(0) > 100
+				                end
+				            },
                 {
                     section = "terminal",
                     pane = 2,
