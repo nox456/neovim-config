@@ -29,10 +29,10 @@ map("v", "<leader>k", "gc", { desc = "toggle comment", remap = true })
 map("t", "<ESC><ESC>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 vim.keymap.del("n", "<leader>th")
 map("n", "<leader>th", function()
-  require("nvchad.term").new { pos = "sp" }
+  require("nvchad.term").new { pos = "bo sp" }
 end, { desc = "terminal new horizontal term" })
 map("n", "<leader>tv", function()
-  require("nvchad.term").new { pos = "vsp" }
+  require("nvchad.term").new { pos = "bo vsp" }
 end, { desc = "terminal new vertical term" })
 map("n", "<leader>tf", function()
   require("nvchad.term").new { pos = "float" }
