@@ -34,6 +34,9 @@ end, { desc = "terminal new horizontal term" })
 map("n", "<leader>tv", function()
   require("nvchad.term").new { pos = "bo vsp" }
 end, { desc = "terminal new vertical term" })
+map("n", "<leader>tt", function()
+  require("nvchad.term").new { pos = "bo vsp", size = 1 }
+end, { desc = "terminal new vertical term" })
 map("n", "<leader>tf", function()
   require("nvchad.term").new { pos = "float" }
 end, { desc = "terminal new floating term" })
