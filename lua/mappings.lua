@@ -35,6 +35,7 @@ map("n", "<leader>tv", function()
   require("nvchad.term").new { pos = "bo vsp" }
 end, { desc = "terminal new vertical term" })
 map("n", "<leader>tt", function()
+  vim.cmd "tabnew"
   require("nvchad.term").new { pos = "bo vsp", size = 1 }
 end, { desc = "terminal new vertical term" })
 map("n", "<leader>tf", function()
