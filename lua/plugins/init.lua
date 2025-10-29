@@ -112,4 +112,14 @@ return {
       }
     end,
   },
+  {
+    "mfussenegger/nvim-lint",
+    enabled = false,
+    event = { "BufEnter *.*", "BufEnter */.git/*" },
+    config = function()
+      require("lint").linters_by_ft = {
+        typescript = { "eslint" },
+      }
+    end,
+  },
 }
