@@ -44,6 +44,15 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    opts = {
+      gh = {},
+      picker = {
+        sources = {
+          gh_issue = {},
+          gh_pr = {},
+        }
+      }
+    }
   },
 
   {
