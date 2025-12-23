@@ -42,8 +42,18 @@ M.ui = {
   statusline = {
     theme = "default",
     separator_style = "arrow",
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "cwd", "cursor" },
-    modules = {},
+    order = { "mode", "filepath", "git", "%=", "lsp_msg", "%=", "diagnostics", "cwd", "cursor" },
+    modules = {
+      filepath = function()
+        local filepath = vim.fn.expand "%:p"
+        local cwd = vim.fn.getcwd()
+        if filepath:find(cwd, 1, true) == 1 then
+          return "%#St_file# " .. filepath:sub(#cwd + 2, -(#vim.fn.expand "%:t") - 2) .. " "
+        else
+          return "%#St_relativepath# " .. vim.fn.expand "%:t" -- fallback to filename only
+        end
+      end,
+    },
   },
 }
 
