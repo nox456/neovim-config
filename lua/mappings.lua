@@ -83,3 +83,6 @@ end)
 map("n", "<leader>ghp", function()
   Snacks.picker.gh_pr { assignee = "@me" }
 end)
+
+map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
+
