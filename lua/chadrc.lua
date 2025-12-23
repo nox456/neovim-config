@@ -35,7 +35,7 @@ M.nvdash = {
     { txt = " Github Issues", keys = "gi", cmd = ":lua require('snacks').picker.gh_issue({ assignee = '@me' })" },
     { txt = "󰓂 Github PRs", keys = "gp", cmd = ":lua require('snacks').picker.gh_pr({ assignee = '@me' })" },
     { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
-    { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+    { txt = "  Lazy", keys = "lz", cmd = "Lazy" },
   },
 }
 M.ui = {
