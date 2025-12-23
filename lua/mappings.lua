@@ -43,20 +43,20 @@ map("t", "<ESC><ESC>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" }
 
 vim.keymap.del("n", "<leader>th")
 
-map("n", "<leader>th", function()
+map({ "n", "t" }, "<leader>th", function()
   require("nvchad.term").new { pos = "bo sp" }
 end, { desc = "terminal new horizontal term" })
 
-map("n", "<leader>tv", function()
+map({ "n", "t" }, "<leader>tv", function()
   require("nvchad.term").new { pos = "bo vsp" }
 end, { desc = "terminal new vertical term" })
 
-map("n", "<leader>tt", function()
+map({ "n", "t" }, "<leader>tt", function()
   vim.cmd "tabnew"
   require("nvchad.term").new { pos = "bo vsp", size = 1 }
 end, { desc = "terminal new vertical term" })
 
-map("n", "<leader>tf", function()
+map({ "n", "t" }, "<leader>tf", function()
   require("nvchad.term").new { pos = "float" }
 end, { desc = "terminal new floating term" })
 
@@ -64,8 +64,10 @@ map("n", "<leader><", "zc", { desc = "Fold", remap = true })
 
 map("n", "<leader>>", "za", { desc = "Unfold", remap = true })
 
-map("n", "<leader>cc", function()
-  require("nvchad.term").new { pos = "vsp", cmd = "claude && exit", size = 0.3 }
+map({ "n", "t" }, "<leader>cc", function()
+  require("nvchad.term").new { pos = "vsp", size = 0.3 }
+  local term_chan = vim.b.terminal_job_id
+  vim.fn.chansend(term_chan, "clear && claude && exit\n")
 end, { desc = "terminal new horizontal term with claude code" })
 
 map("n", "<leader>g", "<cmd>Neogit<CR>")
@@ -74,10 +76,10 @@ map("n", "<leader>ng", "<cmd>Gitsigns next_hunk<CR>")
 
 map("n", "<leader>pg", "<cmd>Gitsigns prev_hunk<CR>")
 
-map("n", "<leader>ghi", function ()
-  Snacks.picker.gh_issue({ assignee = '@me' })
+map("n", "<leader>ghi", function()
+  Snacks.picker.gh_issue { assignee = "@me" }
 end)
 
-map("n", "<leader>ghp", function ()
-  Snacks.picker.gh_pr({ assignee = '@me' })
+map("n", "<leader>ghp", function()
+  Snacks.picker.gh_pr { assignee = "@me" }
 end)
