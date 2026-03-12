@@ -5,6 +5,21 @@
 ---@type ChadrcConfig
 local M = {}
 
+local function stl_sep(direction, sep_hl, icon_hl, icon)
+  local stl_utils = require "nvchad.stl.utils"
+  local config = require("nvconfig").ui.statusline
+  local sep_style = config.separator_style
+  local seps = (type(sep_style) == "table" and sep_style) or stl_utils.separators[sep_style]
+
+  local sep = "%#" .. sep_hl .. "#" .. seps[direction]
+  local ic = "%#" .. icon_hl .. "#" .. icon
+
+  if direction == "right" then
+    return ic .. sep
+  end
+  return sep .. ic
+end
+
 M.base46 = {
   theme = "decay",
 
@@ -42,16 +57,27 @@ M.ui = {
   statusline = {
     theme = "default",
     separator_style = "arrow",
-    order = { "mode", "filepath", "git", "%=", "lsp_msg", "%=", "diagnostics", "cwd", "cursor" },
+    order = { "mode", "filepath", "git", "%=", "lsp_msg", "%=", "diagnostics", "cwd", "file_position" },
     modules = {
       filepath = function()
         local filepath = vim.fn.expand "%:p"
         local cwd = vim.fn.getcwd()
         if filepath:find(cwd, 1, true) == 1 then
-          return "%#St_file# " .. filepath:sub(#cwd + 2, -(#vim.fn.expand "%:t") - 2) .. " "
+          return "%#St_file# "
+            .. "  "
+            .. filepath:sub(#cwd + 2, -(#vim.fn.expand "%:t") - 2)
+            .. " "
+            .. stl_sep("right", "St_file_sep", "St_file", "")
         else
           return "%#St_relativepath# " .. vim.fn.expand "%:t" -- fallback to filename only
         end
+      end,
+      file_position = function()
+        local current_line = vim.fn.line "."
+        local total_lines = vim.fn.line "$"
+        local percentage = math.floor((current_line / total_lines) * 100)
+
+        return stl_sep("left", "St_pos_sep", "St_pos_icon", "󰦨 ") .. "%#St_pos_text# " .. percentage .. "%% "
       end,
     },
   },
