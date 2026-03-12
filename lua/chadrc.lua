@@ -54,11 +54,21 @@ M.nvdash = {
   },
 }
 M.ui = {
+  -- tabufline = {
+  --   bufwidth = 40,
+  -- },
   statusline = {
     theme = "default",
     separator_style = "arrow",
-    order = { "mode", "filepath", "git", "%=", "lsp_msg", "%=", "diagnostics", "cwd", "file_position" },
+    order = { "mode", "filepath", "git", "%=", "lsp_msg", "%=", "diagnostics", "filename", "cwd", "file_position" },
     modules = {
+      filename = function()
+        local name = vim.fn.expand "%:t"
+        if name == "" then
+          return ""
+        end
+        return "%#St_gitIcons#" .. name .. " "
+      end,
       filepath = function()
         local filepath = vim.fn.expand "%:p"
         local cwd = vim.fn.getcwd()
