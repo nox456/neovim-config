@@ -86,3 +86,12 @@ end)
 
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
 
+-- Yanky
+map({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+map({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+
+map("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+map("n", "<c-n>", "<Plug>(YankyNextEntry)")
+
+map("n", "<leader>y", "<cmd>YankyRingHistory<CR>")
+map("n", "<leader>yr", "<cmd>YankyClearHistory<CR>")
