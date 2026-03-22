@@ -85,6 +85,8 @@ map("n", "<leader>ghp", function()
 end)
 
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
+map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>")
+map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>")
 
 -- Yanky
 map({"n","x"}, "p", "<Plug>(YankyPutAfter)")
