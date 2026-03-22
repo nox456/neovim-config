@@ -101,7 +101,9 @@ return {
       },
       commit_editor = {
         spell_check = false,
-        kind = "floating",
+        show_staged_diff = true,
+        kind = "tab",
+        staged_diff_split_kind = "split",
       },
       log_view = {
         kind = "floating",
