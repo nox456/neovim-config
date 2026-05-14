@@ -47,6 +47,7 @@ return {
     opts = {
       gh = {},
       picker = {
+        ui_select = true,
         sources = {
           gh_issue = {},
           gh_pr = {},
