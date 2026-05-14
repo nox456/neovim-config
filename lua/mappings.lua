@@ -53,8 +53,10 @@ end, { desc = "terminal new vertical term" })
 
 map({ "n", "t" }, "<leader>tt", function()
   vim.cmd "tabnew"
+  local empty_win = vim.api.nvim_get_current_win()
   require("nvchad.term").new { pos = "bo vsp", size = 1 }
-end, { desc = "terminal new vertical term" })
+  vim.api.nvim_win_close(empty_win, true)
+end, { desc = "terminal new tab term" })
 
 map({ "n", "t" }, "<leader>tf", function()
   require("nvchad.term").new { pos = "float" }
