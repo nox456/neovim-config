@@ -143,4 +143,12 @@ return {
       -- refer to the configuration section below
     },
   },
+
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    opts = {
+      background_colour = "#000000",
+    },
+  },
 }
