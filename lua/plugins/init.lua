@@ -46,6 +46,7 @@ return {
     lazy = false,
     opts = {
       gh = {},
+      notifier = {},
       picker = {
         ui_select = true,
         sources = {
