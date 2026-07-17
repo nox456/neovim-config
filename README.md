@@ -15,7 +15,7 @@ tuned for web development (TypeScript/React), Go, and a Git-heavy workflow.
 - **AI completion:** inline suggestions via [Supermaven](https://github.com/supermaven-inc/supermaven-nvim).
 - **Git inside Neovim:** full [Neogit](https://github.com/NeogitOrg/neogit) UI + [Gitsigns](https://github.com/lewis6991/gitsigns.nvim) hunk actions and inline blame.
 - **GitHub from the dashboard:** browse your assigned issues and PRs through [snacks.nvim](https://github.com/folke/snacks.nvim).
-- **Claude Code integration:** open a terminal that launches Claude Code with a single keymap.
+- **Claude Code integration:** [claudecode.nvim](https://github.com/coder/claudecode.nvim) — speaks the same WebSocket protocol as the official VS Code/JetBrains extensions, so Claude sees your selection, can open files, and proposes changes as diffs you accept or reject without leaving Neovim.
 
 ---
 
@@ -33,6 +33,7 @@ Make sure these are installed on your machine before setting up the config:
 | **Go** | Needed for the `gopls` language server. |
 | **[GitHub CLI](https://cli.github.com/)** (`gh`), authenticated | Required by the snacks GitHub issue/PR pickers. |
 | **A C compiler** (`gcc`/`clang`) | Building treesitter parsers. |
+| **[Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)** | Required by the claudecode.nvim integration. The spec points at `~/.local/bin/claude` — see below. |
 
 ---
 
@@ -127,6 +128,7 @@ That's it — open a project and start working.
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git gutter signs, hunk actions and inline blame. |
 | [nvim-lint](https://github.com/mfussenegger/nvim-lint) | Async linting — **currently disabled** (eslint for TS is preconfigured). |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | Yank ring / clipboard history. |
+| [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code integration — selection/buffer context, diffs reviewed in-editor. |
 
 ### Provided by NvChad (managed automatically)
 
@@ -136,7 +138,7 @@ That's it — open a project and start working.
 
 ## ⌨️ Keybindings
 
-Leader is **`,`**. The full list of custom maps lives in **[lua/KEYBINDINGS.md](lua/KEYBINDINGS.md)** — covering general editing, buffers/tabs, files & search, folds, terminals, Git and the yank ring.
+Leader is **`,`**. The full list of custom maps lives in **[lua/KEYBINDINGS.md](lua/KEYBINDINGS.md)** — covering general editing, buffers/tabs, files & search, folds, terminals, Git, Claude Code (`<leader>c*`) and the yank ring.
 
 > The NvChad defaults still apply on top of these — press `,` and wait for the [which-key](https://github.com/folke/which-key.nvim) popup to discover everything else.
 
@@ -166,6 +168,7 @@ Format manually with `<leader>i`. To enable **format on save**, uncomment the `f
 - **Dashboard buttons:** edit `M.nvdash.buttons` in `lua/chadrc.lua`.
 - **Add a plugin:** add a spec to `lua/plugins/init.lua`, then run `:Lazy sync`.
 - **Add an LSP:** append the server name to the `servers` list in `lua/configs/lspconfig.lua` and install it via `:Mason`.
+- **Point Claude Code at your own binary:** the spec in `lua/plugins/init.lua` hardcodes `terminal_cmd = "~/.local/bin/claude"`. If yours lives elsewhere (check with `which claude`), edit that path — or delete the line entirely to fall back to whatever `claude` is on your `$PATH`.
 
 ---
 

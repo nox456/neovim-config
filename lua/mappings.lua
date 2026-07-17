@@ -66,11 +66,18 @@ map("n", "<leader><", "zc", { desc = "Fold", remap = true })
 
 map("n", "<leader>>", "za", { desc = "Unfold", remap = true })
 
-map({ "n", "t" }, "<leader>cc", function()
-  require("nvchad.term").new { pos = "vsp", size = 0.3 }
-  local term_chan = vim.b.terminal_job_id
-  vim.fn.chansend(term_chan, "clear && claude && exit\n")
-end, { desc = "terminal new horizontal term with claude code" })
+-- Claude Code
+map("n", "<leader>cc", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude" })
+map("n", "<leader>cf", "<cmd>ClaudeCodeFocus<cr>", { desc = "Focus Claude" })
+map("n", "<leader>cr", "<cmd>ClaudeCode --resume<cr>", { desc = "Resume Claude" })
+-- map("n", "<leader>cC", "<cmd>ClaudeCode --continue<cr>", { desc = "Continue Claude" })
+map("n", "<leader>cm", "<cmd>ClaudeCodeSelectModel<cr>", { desc = "Select Claude model" })
+map("n", "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Add current buffer" })
+map("v", "<leader>cs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
+
+-- Claude Code diff management
+map("n", "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
+map("n", "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
 map("n", "<leader>g", "<cmd>Neogit<CR>")
 

@@ -40,8 +40,18 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 | `<leader>tv` | New vertical terminal |
 | `<leader>tt` | New terminal in a new tab |
 | `<leader>tf` | New floating terminal |
-| `<leader>cc` | New vertical terminal running **Claude Code** |
 | `<ESC><ESC>` | Exit terminal mode |
+
+## Claude Code (claudecode.nvim)
+| Key | Action |
+| --- | --- |
+| `<leader>cc` | Toggle Claude |
+| `<leader>cf` | Focus Claude |
+| `<leader>cr` | Resume a previous session |
+| `<leader>cm` | Select Claude model |
+| `<leader>cb` | Add current buffer to the context |
+| `<leader>cs` (visual) | Send selection to Claude |
+| `<leader>ca` / `<leader>cd` | Accept / deny a diff |
 
 ## Git
 | Key | Action |

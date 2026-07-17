@@ -152,4 +152,35 @@ return {
       background_colour = "#000000",
     },
   },
+
+  {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    opts = {
+      terminal_cmd = "~/.local/bin/claude", -- Point to local installation
+      diff_opts = {
+        layout = "unified"
+      }
+    },
+    -- Keymaps live in lua/mappings.lua and all go through `<cmd>ClaudeCode*<cr>`, so these
+    -- command stubs are the only lazy-load trigger. Dropping a name here makes its mapping
+    -- fail on a fresh start, before anything else has loaded the plugin.
+    cmd = {
+      "ClaudeCode",
+      "ClaudeCodeFocus",
+      "ClaudeCodeSelectModel",
+      "ClaudeCodeAdd",
+      "ClaudeCodeSend",
+      "ClaudeCodeTreeAdd",
+      "ClaudeCodeStatus",
+      "ClaudeCodeStart",
+      "ClaudeCodeStop",
+      "ClaudeCodeOpen",
+      "ClaudeCodeClose",
+      "ClaudeCodeDiffAccept",
+      "ClaudeCodeDiffDeny",
+      "ClaudeCodeCloseAllDiffs",
+    },
+  },
 }
