@@ -115,6 +115,10 @@ return {
         telescope = false,
       },
     },
+    config = function(_, opts)
+      require("neogit").setup(opts)
+      require "configs.neogit"
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
