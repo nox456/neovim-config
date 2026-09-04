@@ -40,7 +40,7 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 | `<leader>tv` | New vertical terminal |
 | `<leader>tt` | New terminal in a new tab |
 | `<leader>tf` | New floating terminal |
-| `<ESC><ESC>` | Exit terminal mode |
+| `<ESC><ESC>` | Exit terminal mode (NvChad's `<C-x>` binding is removed so Claude Code can use it) |
 
 ## Claude Code (claudecode.nvim)
 | Key | Action |

@@ -41,6 +41,8 @@ map("v", "<leader>k", "gc", { desc = "toggle comment", remap = true })
 
 map("t", "<ESC><ESC>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
+vim.keymap.del("t", "<C-x>")
+
 vim.keymap.del("n", "<leader>th")
 
 map({ "n", "t" }, "<leader>th", function()
