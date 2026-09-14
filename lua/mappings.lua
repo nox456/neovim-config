@@ -81,7 +81,7 @@ map("v", "<leader>cs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
 map("n", "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
 map("n", "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
-map("n", "<leader>g", "<cmd>Neogit<CR>")
+map({ "n", "t" }, "<leader>g", "<cmd>Neogit<CR>")
 
 map("n", "<leader>ng", "<cmd>Gitsigns next_hunk<CR>")
 

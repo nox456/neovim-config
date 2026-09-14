@@ -56,7 +56,7 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 ## Git
 | Key | Action |
 | --- | --- |
-| `<leader>g` | Open Neogit |
+| `<leader>g` | Open Neogit (normal & terminal modes) |
 | `<leader>ng` / `<leader>pg` | Next / previous hunk |
 | `<leader>gp` | Preview hunk |
 | `<leader>gs` | Stage hunk |
