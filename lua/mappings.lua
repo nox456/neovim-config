@@ -19,9 +19,9 @@ map("n", "<A-2>", "<cmd>bprev<CR>")
 
 map("n", "<A-3>", "<cmd>bnext<CR>")
 
-map("n", "<A-4>", "<cmd>tabprevious<CR>")
+map({ "n", "i", "v", "t" }, "<A-4>", "<cmd>tabprevious<CR>", { desc = "tabufline goto prev tab" })
 
-map("n", "<A-5>", "<cmd>tabnext<CR>")
+map({ "n", "i", "v", "t" }, "<A-5>", "<cmd>tabnext<CR>", { desc = "tabufline goto next tab" })
 
 map("n", "<leader>F", function()
   Snacks.picker.files { layout = "select" }
