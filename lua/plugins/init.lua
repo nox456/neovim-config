@@ -27,6 +27,7 @@ return {
             theme = "dropdown",
             on_project_selected = function(prompt_bufnr)
               project_actions.change_working_directory(prompt_bufnr)
+              vim.cmd("ForgeSyncRepository " .. vim.fn.getcwd())
             end,
           },
         },
@@ -164,8 +165,8 @@ return {
     opts = {
       terminal_cmd = "~/.local/bin/claude", -- Point to local installation
       diff_opts = {
-        layout = "unified"
-      }
+        layout = "unified",
+      },
     },
     -- Keymaps live in lua/mappings.lua and all go through `<cmd>ClaudeCode*<cr>`, so these
     -- command stubs are the only lazy-load trigger. Dropping a name here makes its mapping
@@ -186,5 +187,11 @@ return {
       "ClaudeCodeDiffDeny",
       "ClaudeCodeCloseAllDiffs",
     },
+  },
+
+  {
+    "nox456/forgesync.nvim",
+    opts = {},
+    lazy = false,
   },
 }
