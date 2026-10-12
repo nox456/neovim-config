@@ -4,6 +4,8 @@
 
 local stl = require "statusline.utils"
 local claude = require "statusline.claude"
+local git = require "statusline.git"
+local worktree = require "statusline.worktree"
 
 ---@type ChadrcConfig
 local M = {}
@@ -52,6 +54,7 @@ M.ui = {
       "mode",
       "filepath",
       "git",
+      "worktree",
       "%=",
       "lsp_msg",
       "%=",
@@ -65,6 +68,13 @@ M.ui = {
       -- Organization + 5h session usage, shown while the Claude Code terminal
       -- is on screen. See lua/statusline/claude.lua.
       claude = claude.module,
+      -- NvChad's `git`, but also shown on buffers gitsigns never attaches to
+      -- (dashboard, terminal, nvim-tree), from the cwd's repository. See
+      -- lua/statusline/git.lua.
+      git = git.module,
+      -- Linked git worktree of the current buffer, next to `git`. See
+      -- lua/statusline/worktree.lua.
+      worktree = worktree.module,
       filename = function()
         local name = vim.fn.expand "%:t"
         if name == "" then
