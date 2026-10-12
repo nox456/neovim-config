@@ -10,7 +10,7 @@ tuned for web development (TypeScript/React), Go, and a Git-heavy workflow.
 ## ✨ Highlights
 
 - **Base framework:** [NvChad v2.5](https://nvchad.com/) — provides the UI, theming (base46), completion (nvim-cmp), treesitter, which-key and sane defaults.
-- **Theme:** `decay` with an arrow-style custom statusline (shows file path, git, diagnostics and cursor position percentage).
+- **Theme:** `decay` with an arrow-style custom statusline (shows file path, git branch and linked worktree — also on the dashboard, terminal and file tree — diagnostics, Claude Code organization and 5-hour usage, and cursor position percentage).
 - **Leader key:** `,` (comma).
 - **AI completion:** inline suggestions via [Supermaven](https://github.com/supermaven-inc/supermaven-nvim).
 - **Git inside Neovim:** full [Neogit](https://github.com/NeogitOrg/neogit) UI + [Gitsigns](https://github.com/lewis6991/gitsigns.nvim) hunk actions and inline blame.
@@ -25,7 +25,7 @@ Make sure these are installed on your machine before setting up the config:
 
 | Requirement | Why |
 | --- | --- |
-| **Neovim ≥ 0.10** | Required by NvChad v2.5. |
+| **Neovim ≥ 0.11** | Required by `vim.lsp.enable`, used to start the LSP servers. |
 | **Git** | Bootstrapping lazy.nvim and Neogit. |
 | **A [Nerd Font](https://www.nerdfonts.com/)** | Icons in the UI, file tree and statusline. |
 | **[ripgrep](https://github.com/BurntSushi/ripgrep)** (`rg`) | Powers live grep / file pickers. |
@@ -89,17 +89,28 @@ That's it — open a project and start working.
 ├── init.lua                  # Entry point: bootstraps lazy.nvim, loads theme, options, autocmds, mappings
 ├── lazy-lock.json            # Pinned plugin versions (commit lockfile)
 ├── .stylua.toml              # Lua formatter (stylua) settings
+├── .claude/
+│   └── CLAUDE.md             # Guidance for Claude Code when working on this config
+├── scripts/
+│   └── cc-usage.sh           # Fetches the Claude Code 5-hour usage window for the statusline
 └── lua/
     ├── chadrc.lua            # NvChad overrides: theme, dashboard (nvdash) buttons, custom statusline
-    ├── options.lua           # Vim options (folds, undofile, …)
+    ├── options.lua           # Vim options (folds fully open, undofile off)
     ├── autocmds.lua          # Autocommands (dashboard on empty buffer, snacks main-window fix)
     ├── mappings.lua          # All custom keymaps
+    ├── KEYBINDINGS.md        # Reference for every custom keymap
     ├── plugins/
     │   └── init.lua          # Plugin specs added on top of NvChad
     ├── configs/
     │   ├── lazy.lua          # lazy.nvim settings (UI, disabled built-ins)
     │   ├── lspconfig.lua     # Enabled LSP servers
-    │   └── conform.lua       # Formatters per filetype
+    │   ├── conform.lua       # Formatters per filetype
+    │   └── neogit.lua        # Keeps Neogit from opening files over terminal windows
+    ├── statusline/
+    │   ├── utils.lua         # Shared arrow-separator helper
+    │   ├── git.lua           # Git branch on every buffer, falling back to the cwd's repository
+    │   ├── worktree.lua      # Linked git worktree of the current buffer
+    │   └── claude.lua        # Claude Code organization + 5-hour usage
     └── nvchad/
         └── configs/
             └── nvimtree.lua  # nvim-tree (file explorer) overrides
@@ -128,7 +139,9 @@ That's it — open a project and start working.
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git gutter signs, hunk actions and inline blame. |
 | [nvim-lint](https://github.com/mfussenegger/nvim-lint) | Async linting — **currently disabled** (eslint for TS is preconfigured). |
 | [yanky.nvim](https://github.com/gbprod/yanky.nvim) | Yank ring / clipboard history. |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify) | Pop-up notification toasts. |
 | [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code integration — selection/buffer context, diffs reviewed in-editor. |
+| [forgesync.nvim](https://github.com/nox456/forgesync.nvim) | Repository sync — runs `ForgeSyncRepository` when a project is picked in telescope-project. |
 
 ### Provided by NvChad (managed automatically)
 
