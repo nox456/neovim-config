@@ -15,9 +15,16 @@ map("n", "<leader>q", ":q<CR>")
 
 map("n", "<leader>w", ":Bdelete<CR>", { remap = true })
 
-map("n", "<A-2>", "<cmd>bprev<CR>")
+-- Walk the tabufline's own buffer list (vim.t.bufs) rather than :bprev/:bnext, which follow
+-- Neovim's global buffer numbers and drift from the bufferline once terminals or other tabs
+-- add buffers.
+map("n", "<A-2>", function()
+  require("nvchad.tabufline").prev()
+end, { desc = "buffer goto prev" })
 
-map("n", "<A-3>", "<cmd>bnext<CR>")
+map("n", "<A-3>", function()
+  require("nvchad.tabufline").next()
+end, { desc = "buffer goto next" })
 
 map({ "n", "i", "v", "t" }, "<A-4>", "<cmd>tabprevious<CR>", { desc = "tabufline goto prev tab" })
 

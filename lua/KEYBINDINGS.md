@@ -16,7 +16,7 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 ## Buffers & Tabs
 | Key | Action |
 | --- | --- |
-| `<A-2>` / `<A-3>` | Previous / next buffer |
+| `<A-2>` / `<A-3>` | Previous / next buffer (in bufferline order) |
 | `<A-4>` / `<A-5>` | Previous / next tab (works in normal, insert, visual & terminal modes) |
 
 ## Files & Search
