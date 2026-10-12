@@ -17,13 +17,17 @@ map("n", "<leader>w", ":Bdelete<CR>", { remap = true })
 
 -- Walk the tabufline's own buffer list (vim.t.bufs) rather than :bprev/:bnext, which follow
 -- Neovim's global buffer numbers and drift from the bufferline once terminals or other tabs
--- add buffers.
+-- add buffers. A tab holding only a terminal has an empty list, where tabufline would error.
 map("n", "<A-2>", function()
-  require("nvchad.tabufline").prev()
+  if #(vim.t.bufs or {}) > 0 then
+    require("nvchad.tabufline").prev()
+  end
 end, { desc = "buffer goto prev" })
 
 map("n", "<A-3>", function()
-  require("nvchad.tabufline").next()
+  if #(vim.t.bufs or {}) > 0 then
+    require("nvchad.tabufline").next()
+  end
 end, { desc = "buffer goto next" })
 
 map({ "n", "i", "v", "t" }, "<A-4>", "<cmd>tabprevious<CR>", { desc = "tabufline goto prev tab" })
@@ -63,8 +67,11 @@ end, { desc = "terminal new vertical term" })
 map({ "n", "t" }, "<leader>tt", function()
   vim.cmd "tabnew"
   local empty_win = vim.api.nvim_get_current_win()
+  local empty_buf = vim.api.nvim_get_current_buf()
   require("nvchad.term").new { pos = "bo vsp", size = 1 }
   vim.api.nvim_win_close(empty_win, true)
+  -- Wipe the [No Name] buffer :tabnew created, or it stays listed and shows up in the bufferline.
+  vim.api.nvim_buf_delete(empty_buf, { force = true })
 end, { desc = "terminal new tab term" })
 
 map({ "n", "t" }, "<leader>tf", function()
