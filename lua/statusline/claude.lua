@@ -319,6 +319,14 @@ function M.is_active()
   return bufnr ~= nil and is_visible(bufnr) and is_running(bufnr)
 end
 
+-- Whether the window the statusline is drawing holds the Claude Code terminal.
+-- Its buffer name (`term://…:claude`) says nothing worth a section, so the file
+-- sections in `lua/chadrc.lua` hide themselves while this is true.
+function M.is_focused()
+  local bufnr = terminal_bufnr()
+  return bufnr ~= nil and bufnr == require("nvchad.stl.utils").stbufnr()
+end
+
 function M.module()
   init()
 

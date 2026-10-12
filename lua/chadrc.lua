@@ -77,18 +77,22 @@ M.ui = {
       worktree = worktree.module,
       filename = function()
         local name = vim.fn.expand "%:t"
-        if name == "" then
+        if name == "" or claude.is_focused() then
           return ""
         end
         return "%#St_gitIcons#" .. name .. " "
       end,
       filepath = function()
+        if claude.is_focused() then
+          return ""
+        end
         local filepath = vim.fn.expand "%:p"
         local cwd = vim.fn.getcwd()
         if filepath:find(cwd, 1, true) == 1 then
+          local dir = filepath:sub(#cwd + 2, -(#vim.fn.expand "%:t") - 2)
           return "%#St_file# "
             .. "  "
-            .. filepath:sub(#cwd + 2, -(#vim.fn.expand "%:t") - 2)
+            .. (dir == "" and "/" or dir) -- file at the cwd root
             .. " "
             .. stl.sep("right", "St_file_sep", "St_file", "")
         else
