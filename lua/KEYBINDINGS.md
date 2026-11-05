@@ -52,6 +52,7 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 | `<leader>cb` | Add current buffer to the context |
 | `<leader>cs` (visual) | Send selection to Claude |
 | `<leader>ca` / `<leader>cd` | Accept / deny a diff |
+| `<leader>cD` | Spawn Claude with `ddd` in a vertical split |
 
 ## Git
 | Key | Action |

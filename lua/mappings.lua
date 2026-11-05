@@ -95,6 +95,33 @@ map("v", "<leader>cs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
 map("n", "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
 map("n", "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
+map("n", "<leader>cD", function()
+  Snacks.terminal.open({ "bash", "-ic", "ddd" }, {
+    start_insert = true,
+    auto_insert = true,
+    auto_close = true,
+    win = {
+      position = "right",
+      width = 0.30,
+      height = 0,
+      relative = "editor",
+      keys = {
+        claude_new_line = {
+          "<S-CR>",
+          function()
+            vim.api.nvim_feedkeys("\\", "t", true)
+            vim.defer_fn(function()
+              vim.api.nvim_feedkeys("\r", "t", true)
+            end, 10)
+          end,
+          mode = "t",
+          desc = "New line",
+        },
+      },
+    },
+  })
+end, { desc = "Spawn Claude on DeepSeek (ddd)" })
+
 map({ "n", "t" }, "<leader>g", "<cmd>Neogit<CR>")
 
 map("n", "<leader>ng", "<cmd>Gitsigns next_hunk<CR>")
