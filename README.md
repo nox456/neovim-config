@@ -10,7 +10,7 @@ tuned for web development (TypeScript/React), Go, and a Git-heavy workflow.
 ## ✨ Highlights
 
 - **Base framework:** [NvChad v2.5](https://nvchad.com/) — provides the UI, theming (base46), completion (nvim-cmp), treesitter, which-key and sane defaults.
-- **Theme:** `decay` with an arrow-style custom statusline (shows file path, git branch and linked worktree — also on the dashboard, terminal and file tree — diagnostics, Claude Code organization and 5-hour usage, and cursor position percentage).
+- **Theme:** `decay` with an arrow-style custom statusline (shows file path, git branch and linked worktree — also on the dashboard, terminal and file tree — diagnostics, Claude Code organization and 5-hour usage, the repository name — always the main repository, even from inside a worktree — and cursor position percentage).
 - **Leader key:** `,` (comma).
 - **AI completion:** inline suggestions via [Supermaven](https://github.com/supermaven-inc/supermaven-nvim).
 - **Git inside Neovim:** full [Neogit](https://github.com/NeogitOrg/neogit) UI + [Gitsigns](https://github.com/lewis6991/gitsigns.nvim) hunk actions and inline blame.
@@ -110,6 +110,7 @@ That's it — open a project and start working.
     │   ├── utils.lua         # Shared arrow-separator helper
     │   ├── git.lua           # Git branch on every buffer, falling back to the cwd's repository
     │   ├── worktree.lua      # Linked git worktree of the current buffer
+    │   ├── cwd.lua           # Name of the cwd's main git repository, never a worktree
     │   └── claude.lua        # Claude Code organization + 5-hour usage
     └── nvchad/
         └── configs/

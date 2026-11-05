@@ -9,7 +9,8 @@
 -- That fallback is resolved once per cwd with an async `git rev-parse`, and the
 -- branch is then read straight out of `<gitdir>/HEAD`, re-stat'ed at most once
 -- per `poll_ms` -- so a checkout made from a terminal shows up without spawning
--- git on every redraw.
+-- git on every redraw. The same lookup also serves the `cwd` section, which
+-- names the cwd's repository (see `M.cwd_repo`).
 
 local M = {}
 
@@ -17,8 +18,10 @@ local config = {
   poll_ms = 1000,
 }
 
--- cwd -> { root, gitdir, head, stamp, polled_at }, or false when the cwd is not
--- inside a work tree. Absent while the first lookup is still running.
+-- cwd -> { root, gitdir, commondir, head, stamp, polled_at }, or false when the
+-- cwd is not inside a work tree. Absent while the first lookup is still running.
+-- `commondir` is the git dir shared by all of a repository's worktrees: equal to
+-- `gitdir` in the main checkout, the main repository's in a linked worktree.
 local repos = {}
 local pending = {}
 
@@ -68,11 +71,14 @@ local function lookup(cwd)
   vim.schedule(function()
     local ok = pcall(
       vim.system,
-      { "git", "rev-parse", "--absolute-git-dir", "--show-toplevel" },
+      { "git", "rev-parse", "--absolute-git-dir", "--show-toplevel", "--path-format=absolute", "--git-common-dir" },
       { cwd = cwd, text = true },
       function(result)
-        local gitdir, root = (result.stdout or ""):match "^([^\n]+)\n([^\n]+)"
-        repos[cwd] = result.code == 0 and gitdir and { root = root, gitdir = gitdir, polled_at = 0 } or false
+        local gitdir, root, commondir = (result.stdout or ""):match "^([^\n]+)\n([^\n]+)\n([^\n]+)"
+        repos[cwd] = result.code == 0
+            and gitdir
+            and { root = root, gitdir = gitdir, commondir = commondir, polled_at = 0 }
+          or false
         pending[cwd] = nil
         redraw()
       end
@@ -85,13 +91,19 @@ local function lookup(cwd)
   end)
 end
 
-local function from_cwd()
+-- The cached entry for the cwd of the window being drawn, starting its lookup
+-- when there is none yet: nil while that lookup runs, false outside a work tree.
+local function cwd_entry()
   local cwd = vim.fn.getcwd(vim.g.statusline_winid or 0)
   local repo = repos[cwd]
   if repo == nil then
     lookup(cwd)
-    return nil
   end
+  return repo
+end
+
+local function from_cwd()
+  local repo = cwd_entry()
   if not repo then
     return nil
   end
@@ -112,6 +124,17 @@ function M.status()
     return b.gitsigns_status_dict
   end
   return from_cwd()
+end
+
+-- The repository of the window's cwd, whatever buffer it shows -- gitsigns never
+-- consulted: `{ root, gitdir, commondir }`, false outside a work tree, nil while
+-- the cwd is still being resolved.
+function M.cwd_repo()
+  local repo = cwd_entry()
+  if not repo then
+    return repo
+  end
+  return { root = repo.root, gitdir = repo.gitdir, commondir = repo.commondir }
 end
 
 -- A `git init` or `git worktree add` made under a running Neovim turns a cached

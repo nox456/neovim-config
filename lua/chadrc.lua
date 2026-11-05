@@ -6,6 +6,7 @@ local stl = require "statusline.utils"
 local claude = require "statusline.claude"
 local git = require "statusline.git"
 local worktree = require "statusline.worktree"
+local cwd = require "statusline.cwd"
 
 ---@type ChadrcConfig
 local M = {}
@@ -75,6 +76,9 @@ M.ui = {
       -- Linked git worktree of the current buffer, next to `git`. See
       -- lua/statusline/worktree.lua.
       worktree = worktree.module,
+      -- NvChad's `cwd`, but named after the cwd's git repository -- the main
+      -- one, never a linked worktree. See lua/statusline/cwd.lua.
+      cwd = cwd.module,
       filename = function()
         local name = vim.fn.expand "%:t"
         if name == "" or claude.is_focused() then
