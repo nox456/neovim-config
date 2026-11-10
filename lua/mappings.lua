@@ -95,8 +95,12 @@ map("v", "<leader>cs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
 map("n", "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
 map("n", "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
-map("n", "<leader>cD", function()
-  Snacks.terminal.open({ "bash", "-ic", "ddd" }, {
+-- Claude Code in a right-hand split, launched through one of the ~/.bashrc wrappers that
+-- claudecode.nvim's `terminal_cmd` can't name (`ddd`, `claude-work`): an interactive bash
+-- resolves them. The session gets the same title hook as every other Claude launch.
+---@param wrapper string
+local function spawn_claude(wrapper)
+  Snacks.terminal.open({ "bash", "-ic", wrapper .. " " .. require("configs.claude").settings_arg() }, {
     start_insert = true,
     auto_insert = true,
     auto_close = true,
@@ -120,33 +124,14 @@ map("n", "<leader>cD", function()
       },
     },
   })
+end
+
+map("n", "<leader>cD", function()
+  spawn_claude "ddd"
 end, { desc = "Spawn Claude on DeepSeek (ddd)" })
 
 map("n", "<leader>cW", function()
-  Snacks.terminal.open({ "bash", "-ic", "claude-work" }, {
-    start_insert = true,
-    auto_insert = true,
-    auto_close = true,
-    win = {
-      position = "right",
-      width = 0.30,
-      height = 0,
-      relative = "editor",
-      keys = {
-        claude_new_line = {
-          "<S-CR>",
-          function()
-            vim.api.nvim_feedkeys("\\", "t", true)
-            vim.defer_fn(function()
-              vim.api.nvim_feedkeys("\r", "t", true)
-            end, 10)
-          end,
-          mode = "t",
-          desc = "New line",
-        },
-      },
-    },
-  })
+  spawn_claude "claude-work"
 end, { desc = "Spawn Claude with work config" })
 
 map({ "n", "t" }, "<leader>g", "<cmd>Neogit<CR>")
