@@ -54,6 +54,8 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 | `<leader>ca` / `<leader>cd` | Accept / deny a diff |
 | `<leader>cD` | Spawn Claude with `ddd` in a vertical split |
 
+Every session these maps launch gets its title prefixed with the project it was spawned in (`[nvim] - <title>`), from the second prompt on.
+
 ## Git
 | Key | Action |
 | --- | --- |

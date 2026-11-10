@@ -32,6 +32,8 @@ local function basename(path)
   return name ~= "" and name or path
 end
 
+-- `scripts/cc-session-title.sh` names a Claude Code session's project by these same rules (its
+-- `project_name`), so the title prefix matches this section. Change both together.
 local function repo_name(repo)
   if repo.commondir == repo.gitdir then
     return basename(repo.root)

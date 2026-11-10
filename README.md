@@ -15,7 +15,7 @@ tuned for web development (TypeScript/React), Go, and a Git-heavy workflow.
 - **AI completion:** inline suggestions via [Supermaven](https://github.com/supermaven-inc/supermaven-nvim).
 - **Git inside Neovim:** full [Neogit](https://github.com/NeogitOrg/neogit) UI + [Gitsigns](https://github.com/lewis6991/gitsigns.nvim) hunk actions and inline blame.
 - **GitHub from the dashboard:** browse your assigned issues and PRs through [snacks.nvim](https://github.com/folke/snacks.nvim).
-- **Claude Code integration:** [claudecode.nvim](https://github.com/coder/claudecode.nvim) — speaks the same WebSocket protocol as the official VS Code/JetBrains extensions, so Claude sees your selection, can open files, and proposes changes as diffs you accept or reject without leaving Neovim.
+- **Claude Code integration:** [claudecode.nvim](https://github.com/coder/claudecode.nvim) — speaks the same WebSocket protocol as the official VS Code/JetBrains extensions, so Claude sees your selection, can open files, and proposes changes as diffs you accept or reject without leaving Neovim. Every Claude session launched from Neovim also gets its title prefixed with the project it was spawned in (`[nvim] - <title>`), so sessions from different projects are easy to tell apart in `/resume`.
 
 ---
 
@@ -33,7 +33,8 @@ Make sure these are installed on your machine before setting up the config:
 | **Go** | Needed for the `gopls` language server. |
 | **[GitHub CLI](https://cli.github.com/)** (`gh`), authenticated | Required by the snacks GitHub issue/PR pickers. |
 | **A C compiler** (`gcc`/`clang`) | Building treesitter parsers. |
-| **[Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)** | Required by the claudecode.nvim integration. The spec points at `~/.local/bin/claude` — see below. |
+| **[Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)** | Required by the claudecode.nvim integration, which launches whatever `claude` is on your `$PATH` — see below. |
+| **[jq](https://jqlang.org/)** | Used by the Claude Code scripts in `scripts/` (the statusline's usage fetch and the session-title hook). Without it, both quietly do nothing. |
 
 ---
 
@@ -92,7 +93,8 @@ That's it — open a project and start working.
 ├── .claude/
 │   └── CLAUDE.md             # Guidance for Claude Code when working on this config
 ├── scripts/
-│   └── cc-usage.sh           # Fetches the Claude Code 5-hour usage window for the statusline
+│   ├── cc-usage.sh           # Fetches the Claude Code 5-hour usage window for the statusline
+│   └── cc-session-title.sh   # Claude Code hook: prefixes session titles with the project
 └── lua/
     ├── chadrc.lua            # NvChad overrides: theme, dashboard (nvdash) buttons, custom statusline
     ├── options.lua           # Vim options (folds fully open, undofile off)
@@ -105,7 +107,8 @@ That's it — open a project and start working.
     │   ├── lazy.lua          # lazy.nvim settings (UI, disabled built-ins)
     │   ├── lspconfig.lua     # Enabled LSP servers
     │   ├── conform.lua       # Formatters per filetype
-    │   └── neogit.lua        # Keeps Neogit from opening files over terminal windows
+    │   ├── neogit.lua        # Keeps Neogit from opening files over terminal windows
+    │   └── claude.lua        # `--settings` handing the session-title hook to Claude launches
     ├── statusline/
     │   ├── utils.lua         # Shared arrow-separator helper
     │   ├── git.lua           # Git branch on every buffer, falling back to the cwd's repository
@@ -182,7 +185,8 @@ Format manually with `<leader>i`. To enable **format on save**, uncomment the `f
 - **Dashboard buttons:** edit `M.nvdash.buttons` in `lua/chadrc.lua`.
 - **Add a plugin:** add a spec to `lua/plugins/init.lua`, then run `:Lazy sync`.
 - **Add an LSP:** append the server name to the `servers` list in `lua/configs/lspconfig.lua` and install it via `:Mason`.
-- **Point Claude Code at your own binary:** the spec in `lua/plugins/init.lua` hardcodes `terminal_cmd = "~/.local/bin/claude"`. If yours lives elsewhere (check with `which claude`), edit that path — or delete the line entirely to fall back to whatever `claude` is on your `$PATH`.
+- **Point Claude Code at your own binary:** claudecode.nvim's `terminal_cmd` in `lua/plugins/init.lua` is `"claude " .. require("configs.claude").settings_arg()`, so it runs whatever `claude` is on your `$PATH`. To use another binary, replace the leading `claude` with its path. Keep the `settings_arg()` part, or those sessions lose their project prefix.
+- **Turn off the session-title prefix:** drop `require("configs.claude").settings_arg()` from that `terminal_cmd` and from `spawn_claude` in `lua/mappings.lua`. Titles already prefixed keep their prefix until you `/rename` them.
 
 ---
 
