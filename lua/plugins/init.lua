@@ -162,6 +162,9 @@ return {
     dependencies = { "folke/snacks.nvim" },
     config = true,
     opts = {
+      -- Every `:ClaudeCode*` launch carries the hook that prefixes the session's title with
+      -- its project (lua/configs/claude.lua).
+      terminal_cmd = "claude " .. require("configs.claude").settings_arg(),
       diff_opts = {
         layout = "unified",
       },
