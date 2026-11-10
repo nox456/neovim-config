@@ -122,6 +122,33 @@ map("n", "<leader>cD", function()
   })
 end, { desc = "Spawn Claude on DeepSeek (ddd)" })
 
+map("n", "<leader>cW", function()
+  Snacks.terminal.open({ "bash", "-ic", "claude-work" }, {
+    start_insert = true,
+    auto_insert = true,
+    auto_close = true,
+    win = {
+      position = "right",
+      width = 0.30,
+      height = 0,
+      relative = "editor",
+      keys = {
+        claude_new_line = {
+          "<S-CR>",
+          function()
+            vim.api.nvim_feedkeys("\\", "t", true)
+            vim.defer_fn(function()
+              vim.api.nvim_feedkeys("\r", "t", true)
+            end, 10)
+          end,
+          mode = "t",
+          desc = "New line",
+        },
+      },
+    },
+  })
+end, { desc = "Spawn Claude with work config" })
+
 map({ "n", "t" }, "<leader>g", "<cmd>Neogit<CR>")
 
 map("n", "<leader>ng", "<cmd>Gitsigns next_hunk<CR>")
