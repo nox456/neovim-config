@@ -27,7 +27,6 @@ return {
             theme = "dropdown",
             on_project_selected = function(prompt_bufnr)
               project_actions.change_working_directory(prompt_bufnr)
-              vim.cmd("ForgeSyncRepository " .. vim.fn.getcwd())
             end,
           },
         },
@@ -163,7 +162,6 @@ return {
     dependencies = { "folke/snacks.nvim" },
     config = true,
     opts = {
-      terminal_cmd = "~/.local/bin/claude", -- Point to local installation
       diff_opts = {
         layout = "unified",
       },
@@ -191,7 +189,11 @@ return {
 
   {
     "nox456/forgesync.nvim",
-    opts = {},
+    opts = {
+      repos = {
+        ["UnoPago/unopago"] = { team = "ENG" },
+      },
+    },
     lazy = false,
   },
 }
