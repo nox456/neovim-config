@@ -155,7 +155,7 @@ That's it — open a project and start working.
 
 ## ⌨️ Keybindings
 
-Leader is **`,`**. The full list of custom maps lives in **[lua/KEYBINDINGS.md](lua/KEYBINDINGS.md)** — covering general editing, buffers/tabs, files & search, folds, terminals, Git, Claude Code (`<leader>c*`) and the yank ring.
+Leader is **`,`**. The full list of custom maps lives in **[lua/KEYBINDINGS.md](lua/KEYBINDINGS.md)** — covering general editing, buffers/tabs, files & search, folds, terminals, Git, Claude Code (`<leader>c*`), opencode and the yank ring.
 
 > The NvChad defaults still apply on top of these — press `,` and wait for the [which-key](https://github.com/folke/which-key.nvim) popup to discover everything else.
 

@@ -95,6 +95,18 @@ map("v", "<leader>cs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
 map("n", "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
 map("n", "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
+-- The right-hand split the coding-agent TUIs below open in: a third of the editor, full
+-- height. Shared so a change to one spawn moves the others with it.
+---@param keys table<string, table>?  terminal-mode keymaps the agent needs
+---@return table
+local function agent_split(keys)
+  local win = { position = "right", width = 0.30, height = 0, relative = "editor" }
+  if keys then
+    win.keys = keys
+  end
+  return win
+end
+
 -- Claude Code in a right-hand split, launched through one of the ~/.bashrc wrappers that
 -- claudecode.nvim's `terminal_cmd` can't name (`ddd`, `claude-work`): an interactive bash
 -- resolves them. The session gets the same title hook as every other Claude launch.
@@ -104,23 +116,17 @@ local function spawn_claude(wrapper)
     start_insert = true,
     auto_insert = true,
     auto_close = true,
-    win = {
-      position = "right",
-      width = 0.30,
-      height = 0,
-      relative = "editor",
-      keys = {
-        claude_new_line = {
-          "<S-CR>",
-          function()
-            vim.api.nvim_feedkeys("\\", "t", true)
-            vim.defer_fn(function()
-              vim.api.nvim_feedkeys("\r", "t", true)
-            end, 10)
-          end,
-          mode = "t",
-          desc = "New line",
-        },
+    win = agent_split {
+      claude_new_line = {
+        "<S-CR>",
+        function()
+          vim.api.nvim_feedkeys("\\", "t", true)
+          vim.defer_fn(function()
+            vim.api.nvim_feedkeys("\r", "t", true)
+          end, 10)
+        end,
+        mode = "t",
+        desc = "New line",
       },
     },
   })
@@ -133,6 +139,18 @@ end, { desc = "Spawn Claude on DeepSeek (ddd)" })
 map("n", "<leader>cW", function()
   spawn_claude "claude-work"
 end, { desc = "Spawn Claude with work config" })
+
+-- opencode in the same right-hand split. Plain `opencode`: mise keeps it on PATH, so it
+-- needs none of the shell wrappers `spawn_claude` goes through, and no title hook, which
+-- is Claude Code's.
+map("n", "<leader>op", function()
+  Snacks.terminal.open({ "opencode" }, {
+    start_insert = true,
+    auto_insert = true,
+    auto_close = true,
+    win = agent_split(),
+  })
+end, { desc = "Spawn opencode in a vertical split" })
 
 map({ "n", "t" }, "<leader>g", "<cmd>Neogit<CR>")
 

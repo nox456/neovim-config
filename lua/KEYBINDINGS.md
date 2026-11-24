@@ -53,8 +53,14 @@ Leader is **`,`**. The most useful custom maps (`lua/mappings.lua`):
 | `<leader>cs` (visual) | Send selection to Claude |
 | `<leader>ca` / `<leader>cd` | Accept / deny a diff |
 | `<leader>cD` | Spawn Claude with `ddd` in a vertical split |
+| `<leader>cW` | Spawn Claude with the `claude-work` config in a vertical split |
 
 Every session these maps launch gets its title prefixed with the project it was spawned in (`[nvim] - <title>`), from the second prompt on.
+
+## opencode
+| Key | Action |
+| --- | --- |
+| `<leader>op` | Spawn opencode in a vertical split |
 
 ## Git
 | Key | Action |
